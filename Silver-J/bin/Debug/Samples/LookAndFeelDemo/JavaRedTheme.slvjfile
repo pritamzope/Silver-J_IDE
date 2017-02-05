@@ -1,0 +1,83 @@
+/*
+
+  JavaRedTheme.java
+  
+  Silver-J demo java project
+
+*/
+
+import java.awt.*;
+import javax.swing.plaf.*;
+import javax.swing.plaf.metal.*;
+
+
+public class JavaRedTheme
+     {
+          DefaultMetalTheme z =new DefaultMetalTheme ()
+            {
+                              private final ColorUIResource menuitemselectcolor = new ColorUIResource(250, 50,0);
+    protected ColorUIResource getPrimary2()
+    {
+        return menuitemselectcolor;
+    }
+                //inactive title color
+                public ColorUIResource
+                getWindowTitleInactiveBackground()
+                {
+                    return new ColorUIResource (new Color(255,0,0));
+                }
+
+                //active title color
+                public ColorUIResource
+                getWindowTitleBackground()
+                {
+                    return new ColorUIResource (new Color(255,0,0));
+                }
+                //start ActiveBumps
+                public ColorUIResource
+                getPrimaryControlHighlight()
+                {
+                    return new ColorUIResource
+                        (new Color(200,0,0));
+                }
+                public ColorUIResource
+                getPrimaryControlDarkShadow()
+                {
+                    return new ColorUIResource
+                        (new Color(200,0,0));
+                }
+
+                public ColorUIResource
+                getPrimaryControl()
+                {
+                    //color for minimize,maxi,and close
+                    return new ColorUIResource
+                        (new Color(255,60,0));
+                }
+                //end ActiveBumps
+
+                //start inActiveBumps
+                public ColorUIResource
+                getControlHighlight ()
+                {
+                    return new ColorUIResource
+                        (new Color(200,0,0));
+                }
+
+                public ColorUIResource
+                getControlDarkShadow ()
+                {
+                    return new ColorUIResource
+                        (new Color(200,0,0));
+                }
+
+                public ColorUIResource
+                getControl ()
+                {
+                    return new ColorUIResource
+                        (new Color(255,255,255));
+                }
+                //end inActiveBumps
+            };
+        }
+

@@ -1,0 +1,59 @@
+/*
+
+   CheckBoxDemo.java
+   
+  Silver-J demo java project
+
+*/
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class CheckBoxDemo extends JFrame implements ItemListener
+{
+CheckBoxDemo()
+{
+  setTitle("Check Box Demo");
+  Container cp=getContentPane();
+  cp.setBackground(Color.white);
+  Font font=new Font("SansSerif",Font.PLAIN,14);
+  JLabel lab=new JLabel("click the on checkboxes",JLabel.CENTER);
+  lab.setFont(font);
+  cp.add(lab,BorderLayout.NORTH);
+  result=new JLabel("you checked nothing",JLabel.CENTER);
+  result.setFont(font);
+  cp.add(result,BorderLayout.SOUTH);
+  yes=new JCheckBox("yes");
+  yes.setFont(font);
+  yes.setBackground(Color.white);
+  cp.add(yes,BorderLayout.WEST);
+  yes.addItemListener(this);
+  no=new JCheckBox("no");
+  no.setFont(font);
+  no.setBackground(Color.white);
+  cp.add(no,BorderLayout.EAST);
+  no.addItemListener(this);
+}
+public void itemStateChanged(ItemEvent e)
+{
+  if(yes.isSelected() && no.isSelected())
+  {
+  result.setText("you checked both Boxes");
+  }
+  else if(yes.isSelected())
+  {
+	result.setText("you checked yes Box");
+  }
+ else if(no.isSelected())
+ {
+	result.setText("you checked no Box");
+ }
+ else
+ {
+	result.setText("you checked none of Boxes");
+  }
+ }
+	private JLabel result;
+	private JCheckBox yes,no;
+}

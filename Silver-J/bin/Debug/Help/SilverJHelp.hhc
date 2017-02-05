@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<OBJECT type="text/site properties">
+<param name="ExWindow Styles" value="0x800225">
+<param name="Window Styles" value="0x800225">
+</OBJECT>
+<UL>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Installation & Handling Exception">	<PARAM name="Local" value="installationhandlingexception.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Create New Java Application Project">	<PARAM name="Local" value="createnewjavaapplicationproject.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Create New Java Applet Project">	<PARAM name="Local" value="createnewjavaappletproject.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Create New Java Class">	<PARAM name="Local" value="createnewjavaclass.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Create Package">	<PARAM name="Local" value="createpackage.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Adding Other Files">	<PARAM name="Local" value="addingotherfiles.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Open Project">	<PARAM name="Local" value="openproject.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Open Files">	<PARAM name="Local" value="openfiles.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Load Sample Project">	<PARAM name="Local" value="loadsampleproject.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Saving Files">	<PARAM name="Local" value="savingfiles.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Closing Files & Project">	<PARAM name="Local" value="closingfilesproject.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Change Case & Comment Line">	<PARAM name="Local" value="changecasecommentline.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Insert main function,Class & Events">	<PARAM name="Local" value="insertmainfunctionclassevents.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Appearance">	<PARAM name="Local" value="appearance.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Compile">	<PARAM name="Local" value="compile.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Run Application">	<PARAM name="Local" value="runapplication.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Run Applet">	<PARAM name="Local" value="runapplet.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Run with Parameters">	<PARAM name="Local" value="runwithparameters.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Auto Compile Program">	<PARAM name="Local" value="autocompileprogram.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Add Files to Project">	<PARAM name="Local" value="addfilestoproject.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Build Executable Jar Application">	<PARAM name="Local" value="buildexecutablejarapplication.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Preview HTML Page & View in WebBrowser">	<PARAM name="Local" value="previewhtmlpageviewinwebbrowser.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Options">	<PARAM name="Local" value="options.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Remove Added Files to Project">	<PARAM name="Local" value="removeaddedfilestoproject.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Auto Completion">	<PARAM name="Local" value="autocompletion.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+<LI>	<OBJECT type="text/sitemap">	<PARAM name="Name" value="Automatic Object Creation">	<PARAM name="Local" value="automaticobjectcreation.html">	<PARAM name="ImageNumber" value="0">	</OBJECT>
+

@@ -1,0 +1,123 @@
+/*
+
+ GraphicsTest.java
+ 
+ Silver-J demo java project
+
+*/
+
+import java.awt.*;
+import javax.swing.*;
+import javax.imageio.ImageIO;
+import java.awt.geom.*;
+import java.io.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.BufferedImageOp;
+
+public class GraphicsTest extends JFrame
+{
+  public GraphicsTest()
+  {
+	  setTitle("Graphics Test");
+  }
+
+  //paint method
+  public void paint(Graphics g)
+  {
+	  //create or cast Graphics object g to Graphics2D object g2d
+	Graphics2D g2d=(Graphics2D)g;
+
+	//declare gradient paint methods
+	GradientPaint grp=new GradientPaint(0,0,Color.red,100,100,Color.yellow,true);
+	GradientPaint grp3=new GradientPaint(0,0,Color.magenta,100,100,Color.black,true);
+	GradientPaint grp4=new GradientPaint(0,0,new Color(140,140,240),0,200,new Color(10,10,80),true);
+	g2d.setPaint(grp);
+	//fill rect
+	g2d.fillRect(200,200,300,400);
+	g2d.setPaint(Color.blue);
+	g2d.setStroke(new BasicStroke(8));
+	//draw rect for outer border of above drawn rect
+	g2d.drawRect(200,200,300,400);
+
+	drawGradientPolygon(g2d);
+
+	//fill round rect
+    g2d.fillRoundRect(440,200,400,250,10,20);
+	g2d.setPaint(new Color(0,100,0));
+	g2d.setStroke(new BasicStroke(4));
+    g2d.drawRoundRect(440,200,400,250,10,20);
+
+	g2d.setPaint(grp3);
+    g2d.setFont(new Font("Algerian",Font.BOLD,40));
+    //draw a string
+    g2d.drawString("Java Graphics Test",200,700);
+
+    g2d.setPaint(grp4);
+    //fill oval
+    g2d.fillOval(650,400,200,200);
+
+
+    //read image for TexturePaint
+    BufferedImage image=null;
+   try {
+       image = ImageIO.read(getClass().getResource("abc.jpg"));
+   }
+   catch (IOException e)
+   {
+       e.printStackTrace();
+   }
+
+   Rectangle2D rt=new Rectangle2D.Double(0,0,500,400);
+   //set TexturePaint and fill rect
+   TexturePaint txp=new TexturePaint(image,rt);
+   g2d.setPaint(txp);
+   g2d.fillRect(850,100,400,400);
+
+   //draw transparency rectangles
+    for(int i=0;i<11;i++)
+    {
+      drawSquares(g2d,i*0.1f);
+      g2d.translate(deltaX,0);
+    }
+
+  }
+
+  //drawGradientPolygon() function
+  protected void drawGradientPolygon(Graphics2D g2d)
+  {
+   GradientPaint gradient=new GradientPaint(0,0,Color.black,100,100,Color.green,true);
+   g2d.setPaint(gradient);
+   int x[]={0,20,120,180,240,300,360,400};
+   int y[]={400,280,220,140,60,60,100,220};
+   int n=x.length;
+   g2d.fillPolygon(x,y,n);
+  }
+
+  //drawSquares() function
+  private static int gap=10,width=60,offset=20,deltaX=gap+width+offset;
+  private Rectangle blueSquare=new Rectangle(gap+offset,gap+offset,width,width);
+  private Rectangle redSquare=new Rectangle(gap,gap,width,width);
+  private AlphaComposite makeComposite(float alpha)
+  {
+    int type=AlphaComposite.SRC_OVER;
+    return(AlphaComposite.getInstance(type,alpha));
+  }
+  private void drawSquares(Graphics2D g2d,float alpha)
+  {
+    Composite originalComposite=g2d.getComposite();
+    g2d.setPaint(Color.blue);
+    g2d.fill(blueSquare);
+    g2d.setComposite(makeComposite(alpha));
+    g2d.setPaint(Color.red);
+    g2d.fill(redSquare);
+    g2d.setComposite(originalComposite);
+  }
+
+  //main method
+  public static void main(String[] args)
+  {
+	  JFrame jf=new GraphicsTest();
+	  jf.setSize(1100,700);
+	  jf.setVisible(true);
+  }
+}

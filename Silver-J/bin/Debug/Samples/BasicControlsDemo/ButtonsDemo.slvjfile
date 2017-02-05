@@ -1,0 +1,41 @@
+/*
+
+  ButtonsDemo.java
+
+  Silver-J demo java project
+  
+*/
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class ButtonsDemo extends JFrame implements ActionListener
+{
+private JLabel result;
+JButton yes,no;
+
+  public ButtonsDemo()
+ {
+   JLabel lab=new JLabel("Click on Buttons");
+   getContentPane().add(lab,BorderLayout.NORTH);
+   result=new JLabel(" ");
+   getContentPane().add(result,BorderLayout.SOUTH);
+   yes=new JButton("Yes");
+   getContentPane().add(yes,BorderLayout.WEST);
+   yes.addActionListener(this);
+   no=new JButton("No");
+   getContentPane().add(no,BorderLayout.EAST);
+   no.addActionListener(this);
+}
+public void actionPerformed(ActionEvent evt)
+ {
+  Object ob=evt.getSource();
+  if(ob==yes)
+        result.setText("You clicked yes button");
+  else if(ob==no)
+        result.setText("You clicked no button");
+  else
+        result.setText("You click none of the buttons");
+ }
+}

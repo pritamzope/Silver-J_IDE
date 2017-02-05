@@ -1,0 +1,51 @@
+/*********************************************
+       projectname
+       themename     
+*********************************************/
+
+
+import java.awt.*;
+import javax.swing.*;
+
+modifier class classname extends JFrame
+{
+  modifier classname()
+  {
+     //set title & location to frame
+     setTitle("classname");  
+     setLocation(200,100);    
+     
+     //add panel and button to container
+     JPanel jp=new JPanel();
+     JButton b=new JButton();
+     b.setText("Look And Feel");
+     jp.add(b);
+     
+     //add container to frame
+     Container cp=getContentPane();
+     cp.add(jp,BorderLayout.CENTER);
+     //define your code here
+     
+  }
+  
+  //main method
+  public static void main(String[] args)
+  {
+  
+  //adding theme to JFrame using UIManager class
+  // and static method setLookAndFeel
+  
+    try 
+    {
+     UIManager.setLookAndFeel("themetype");
+    }
+    catch (Exception e)
+    {
+      e.printStackTrace();
+    }
+    
+     JFrame jf=new classname();
+     jf.setSize(500,500);
+     jf.setVisible(true);
+  }
+}

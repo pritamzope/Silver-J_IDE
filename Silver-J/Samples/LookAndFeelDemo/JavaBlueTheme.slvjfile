@@ -1,0 +1,73 @@
+import java.awt.*;
+ import javax.swing.plaf.*;
+ import javax.swing.plaf.metal.*;
+class JavaBlueTheme
+     {
+          DefaultMetalTheme z =new DefaultMetalTheme ()
+            {
+                    private final ColorUIResource menuitemselectcolor = new ColorUIResource(0, 50,250);
+    protected ColorUIResource getPrimary2()
+    {
+        return menuitemselectcolor;
+    }
+                //inactive title color
+                public ColorUIResource
+                getWindowTitleInactiveBackground()
+                {
+                    return new ColorUIResource (new Color(0,0,255));
+                }
+
+                //active title color
+                public ColorUIResource
+                getWindowTitleBackground()
+                {
+                    return new ColorUIResource (new Color(0,0,255));
+                }
+                //start ActiveBumps
+                public ColorUIResource
+                getPrimaryControlHighlight()
+                {
+                    return new ColorUIResource
+                        (new Color(0,0,100));
+                }
+                public ColorUIResource
+                getPrimaryControlDarkShadow()
+                {
+                    return new ColorUIResource
+                        (new Color(0,0,100));
+                }
+
+                public ColorUIResource
+                getPrimaryControl()
+                {
+                    //color for minimize,maxi,and close
+                    return new ColorUIResource
+                        (new Color(0,160,250));
+                }
+                //end ActiveBumps
+
+                //start inActiveBumps
+                public ColorUIResource
+                getControlHighlight ()
+                {
+                    return new ColorUIResource
+                        (new Color(0,0,160));
+                }
+
+                public ColorUIResource
+                getControlDarkShadow ()
+                {
+                    return new ColorUIResource
+                        (new Color(0,0,160));
+                }
+
+                public ColorUIResource
+                getControl ()
+                {
+                    return new ColorUIResource
+                        (new Color(255,255,255));
+                }
+                //end inActiveBumps
+            };
+        }
+

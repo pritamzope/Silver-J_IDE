@@ -1,0 +1,28 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+public class ComboBoxDemo extends JFrame implements ItemListener
+{
+ JTextField jtf;
+ public ComboBoxDemo()
+ {
+   setTitle("Combo Box Demo");
+  Container cp=getContentPane();
+  cp.setLayout(new FlowLayout());
+  JComboBox jc=new JComboBox();
+  jc.setFont(new Font("Calibri",Font.PLAIN,16));
+  jc.addItem("Hello");
+  jc.addItem("How");
+  jc.addItem("are");
+  jc.addItem("you");
+  jc.addItemListener(this);
+  cp.add(jc);
+  jtf=new JTextField(20);
+  cp.add(jtf);
+}
+public void itemStateChanged(ItemEvent e)
+{
+  String s=(String)e.getItem();
+  jtf.setText(""+s);
+}
+}

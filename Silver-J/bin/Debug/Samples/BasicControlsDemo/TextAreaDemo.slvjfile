@@ -1,0 +1,28 @@
+/*
+  
+   TextAreaDemo.java
+   
+   Silver-J demo java project
+
+*/
+
+import java.awt.*;
+import javax.swing.*;
+
+public class TextAreaDemo extends JFrame
+{
+ private JTextArea tx;
+ private JPanel jp;
+ String info="Hello\nthis program"
++" shows use of text area.\nTextArea in Java";
+
+ TextAreaDemo()
+ {
+  setTitle("TextArea Demo");
+  Container cp=getContentPane();
+  jp=new JPanel();
+  tx=new JTextArea(info,8,8);
+  jp.add(tx,BorderLayout.CENTER);
+  cp.add(jp);
+ }
+}

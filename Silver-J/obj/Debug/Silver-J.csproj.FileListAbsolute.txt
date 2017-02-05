@@ -1,0 +1,123 @@
+C:\Visual Studio Projects\Silver-J\Silver-J\bin\Debug\Silver-J.exe.config
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.Properties.Resources.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver-J.csproj.GenerateResource.Cache
+C:\Visual Studio Projects\Silver-J\Silver-J\bin\Debug\Silver-J.exe
+C:\Visual Studio Projects\Silver-J\Silver-J\bin\Debug\Silver-J.pdb
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver-J.exe
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver-J.pdb
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver-J.csprojResolveAssemblyReference.cache
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.MyTabPage.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.MainForm.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.New_JavaApplicationProject_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.New_JavaAppletProject_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.New_Class_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.New_Package_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.New_Interface_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.New_Enums_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.New_HTMLFile_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.New_CSSFile_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.New_TextFile_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.New_JavaScriptFile_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.New_SQLFile_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.New_XMLFile_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.New_NewFile_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.OpenProjectDialog.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.Find_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.Replace_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.GoTo_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.InsertClass_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.InsertEvents_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.RunwithParameter_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.Run_MainClass_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.Preview_HTML_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.About_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.Options_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.SampleProject_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.RemoveAddedFilesToProject_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.Loading_Form.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.Splash.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.ToolTipControlPanel.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.PanelZ.resources
+C:\Visual Studio Projects\Silver-J\Silver-J\obj\Debug\Silver_J.InsertPackages_Form.resources
+E:\Silver-J\Silver-J\bin\Debug\Silver-J.exe.config
+E:\Silver-J\Silver-J\obj\Debug\Silver-J.exe
+E:\Silver-J\Silver-J\obj\Debug\Silver-J.pdb
+E:\Silver-J\Silver-J\bin\Debug\Silver-J.exe
+E:\Silver-J\Silver-J\bin\Debug\Silver-J.pdb
+E:\Silver-J\Silver-J\obj\Debug\Silver-J.csprojResolveAssemblyReference.cache
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.About_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.Find_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.GoTo_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.InsertClass_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.InsertEvents_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.InsertPackages_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.Loading_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.MainForm.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.MyTabPage.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.New_Class_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.New_CSSFile_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.New_Enums_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.New_HTMLFile_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.New_Interface_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.New_JavaAppletProject_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.New_JavaApplicationProject_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.New_JavaScriptFile_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.New_NewFile_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.New_Package_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.New_SQLFile_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.New_TextFile_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.New_XMLFile_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.OpenProjectDialog.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.Options_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.PanelZ.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.Preview_HTML_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.Properties.Resources.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.RemoveAddedFilesToProject_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.Replace_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.RunwithParameter_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.Run_MainClass_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.SampleProject_Form.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.Splash.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver_J.ToolTipControlPanel.resources
+E:\Silver-J\Silver-J\obj\Debug\Silver-J.csproj.GenerateResource.Cache
+C:\Silver j\Silver-J\Silver-J\bin\Debug\Silver-J.exe.config
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver-J.exe
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver-J.pdb
+C:\Silver j\Silver-J\Silver-J\bin\Debug\Silver-J.exe
+C:\Silver j\Silver-J\Silver-J\bin\Debug\Silver-J.pdb
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver-J.csprojResolveAssemblyReference.cache
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.About_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.Find_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.GoTo_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.InsertClass_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.InsertEvents_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.InsertPackages_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.Loading_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.MainForm.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.MyTabPage.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.New_Class_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.New_CSSFile_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.New_Enums_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.New_HTMLFile_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.New_Interface_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.New_JavaAppletProject_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.New_JavaApplicationProject_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.New_JavaScriptFile_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.New_NewFile_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.New_Package_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.New_SQLFile_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.New_TextFile_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.New_XMLFile_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.OpenProjectDialog.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.Options_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.PanelZ.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.Preview_HTML_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.Properties.Resources.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.RemoveAddedFilesToProject_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.Replace_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.RunwithParameter_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.Run_MainClass_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.SampleProject_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.Start_Form.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.ToolTipControlPanel.resources
+C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver-J.csproj.GenerateResource.Cache

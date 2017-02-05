@@ -1,0 +1,615 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{25A34560-1B49-4408-B5B8-B6441A25AB9A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Silver_J</RootNamespace>
+    <AssemblyName>Silver-J</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>silver_j12.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>F75947C0B5F7DE38ECAAC318AFCBC1444D1A1FFC</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Silver-J_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.TextEditor">
+      <HintPath>..\..\..\Users\Pritam\Downloads\Compressed\ICSharpCode.TextEditor\ICSharpCode.TextEditor\ICSharpCode.TextEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About_Form.Designer.cs">
+      <DependentUpon>About_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Find_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Find_Form.Designer.cs">
+      <DependentUpon>Find_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GoTo_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GoTo_Form.Designer.cs">
+      <DependentUpon>GoTo_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InsertClass_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertClass_Form.Designer.cs">
+      <DependentUpon>InsertClass_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InsertEvents_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertEvents_Form.Designer.cs">
+      <DependentUpon>InsertEvents_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InsertPackages_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertPackages_Form.Designer.cs">
+      <DependentUpon>InsertPackages_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LabelZ.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Loading_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loading_Form.Designer.cs">
+      <DependentUpon>Loading_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MouseHoverLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyContextMenuStripZ.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyMenuStripZ.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyRenderer.cs" />
+    <Compile Include="MyTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyTabPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyToolTipPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="New_Class_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New_Class_Form.Designer.cs">
+      <DependentUpon>New_Class_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New_CSSFile_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New_CSSFile_Form.Designer.cs">
+      <DependentUpon>New_CSSFile_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New_Enums_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New_Enums_Form.Designer.cs">
+      <DependentUpon>New_Enums_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New_HTMLFile_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New_HTMLFile_Form.Designer.cs">
+      <DependentUpon>New_HTMLFile_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New_Interface_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New_Interface_Form.Designer.cs">
+      <DependentUpon>New_Interface_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New_JavaAppletProject_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New_JavaAppletProject_Form.Designer.cs">
+      <DependentUpon>New_JavaAppletProject_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New_JavaApplicationProject_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New_JavaApplicationProject_Form.Designer.cs">
+      <DependentUpon>New_JavaApplicationProject_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New_JavaScriptFile_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New_JavaScriptFile_Form.Designer.cs">
+      <DependentUpon>New_JavaScriptFile_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New_NewFile_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New_NewFile_Form.Designer.cs">
+      <DependentUpon>New_NewFile_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New_Package_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New_Package_Form.Designer.cs">
+      <DependentUpon>New_Package_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New_SQLFile_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New_SQLFile_Form.Designer.cs">
+      <DependentUpon>New_SQLFile_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New_TextFile_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New_TextFile_Form.Designer.cs">
+      <DependentUpon>New_TextFile_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New_XMLFile_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New_XMLFile_Form.Designer.cs">
+      <DependentUpon>New_XMLFile_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OpenProjectDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OpenProjectDialog.Designer.cs">
+      <DependentUpon>OpenProjectDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Options_Form.Designer.cs">
+      <DependentUpon>Options_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PanelWithBorder.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PanelZ.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Preview_HTML_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Preview_HTML_Form.Designer.cs">
+      <DependentUpon>Preview_HTML_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintHelper.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RemoveAddedFilesToProject_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoveAddedFilesToProject_Form.Designer.cs">
+      <DependentUpon>RemoveAddedFilesToProject_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Replace_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Replace_Form.Designer.cs">
+      <DependentUpon>Replace_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RunwithParameter_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RunwithParameter_Form.Designer.cs">
+      <DependentUpon>RunwithParameter_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Run_MainClass_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Run_MainClass_Form.Designer.cs">
+      <DependentUpon>Run_MainClass_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SampleProject_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleProject_Form.Designer.cs">
+      <DependentUpon>SampleProject_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="Start_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Start_Form.Designer.cs">
+      <DependentUpon>Start_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolStripZ.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ToolTipControlPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="About_Form.resx">
+      <DependentUpon>About_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Find_Form.resx">
+      <DependentUpon>Find_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GoTo_Form.resx">
+      <DependentUpon>GoTo_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertClass_Form.resx">
+      <DependentUpon>InsertClass_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertEvents_Form.resx">
+      <DependentUpon>InsertEvents_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertPackages_Form.resx">
+      <DependentUpon>InsertPackages_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loading_Form.resx">
+      <DependentUpon>Loading_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyTabPage.resx">
+      <DependentUpon>MyTabPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New_Class_Form.resx">
+      <DependentUpon>New_Class_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New_CSSFile_Form.resx">
+      <DependentUpon>New_CSSFile_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New_Enums_Form.resx">
+      <DependentUpon>New_Enums_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New_HTMLFile_Form.resx">
+      <DependentUpon>New_HTMLFile_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New_Interface_Form.resx">
+      <DependentUpon>New_Interface_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New_JavaAppletProject_Form.resx">
+      <DependentUpon>New_JavaAppletProject_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New_JavaApplicationProject_Form.resx">
+      <DependentUpon>New_JavaApplicationProject_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New_JavaScriptFile_Form.resx">
+      <DependentUpon>New_JavaScriptFile_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New_NewFile_Form.resx">
+      <DependentUpon>New_NewFile_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New_Package_Form.resx">
+      <DependentUpon>New_Package_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New_SQLFile_Form.resx">
+      <DependentUpon>New_SQLFile_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New_TextFile_Form.resx">
+      <DependentUpon>New_TextFile_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New_XMLFile_Form.resx">
+      <DependentUpon>New_XMLFile_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpenProjectDialog.resx">
+      <DependentUpon>OpenProjectDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options_Form.resx">
+      <DependentUpon>Options_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PanelZ.resx">
+      <DependentUpon>PanelZ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Preview_HTML_Form.resx">
+      <DependentUpon>Preview_HTML_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RemoveAddedFilesToProject_Form.resx">
+      <DependentUpon>RemoveAddedFilesToProject_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Replace_Form.resx">
+      <DependentUpon>Replace_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RunwithParameter_Form.resx">
+      <DependentUpon>RunwithParameter_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Run_MainClass_Form.resx">
+      <DependentUpon>Run_MainClass_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleProject_Form.resx">
+      <DependentUpon>SampleProject_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Start_Form.resx">
+      <DependentUpon>Start_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolTipControlPanel.resx">
+      <DependentUpon>ToolTipControlPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Silver-J_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appletproject.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\browse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\class.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\closefile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cssfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enums.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\errors.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\goto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\htmlfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\interface.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jarfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\javaproject.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\javascriptfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\multilinecomment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nextdocument.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\openfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\openproject.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\options.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\package.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\previousdocument.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\projectoptions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\replace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\run2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\runapplet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\runwithparameter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\singlelinecomment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sqlfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stop2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\textfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xmlfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="myj.ico" />
+    <None Include="Resources\blocks3.bmp" />
+    <None Include="Resources\blocks4.bmp" />
+    <None Include="Resources\blocks5.bmp" />
+    <None Include="Resources\blocks6.bmp" />
+    <None Include="Resources\blocks7.bmp" />
+    <None Include="Resources\circuit.bmp" />
+    <None Include="Resources\green.jpg" />
+    <None Include="Resources\horror1.bmp" />
+    <None Include="Resources\Plant+hedge+bush+leaf+leaves+texture.jpg" />
+    <None Include="Resources\red_wall_texture_cartoon_style_by_ralfss-d531kri.jpg" />
+    <None Include="Resources\rocks.bmp" />
+    <None Include="Resources\rocks2.bmp" />
+    <None Include="Resources\roughwood.bmp" />
+    <Content Include="silver_j12_ico.ico" />
+    <None Include="Resources\silver_j12_png.png" />
+    <Content Include="silver_j12.ico" />
+    <None Include="Resources\silver_j_png.png" />
+    <Content Include="silverj.ico" />
+    <Content Include="silver_j.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

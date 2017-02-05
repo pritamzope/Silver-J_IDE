@@ -1,0 +1,55 @@
+[OPTIONS]
+TITLE=Silver-J Help Contents
+Full-text search=Yes
+Display compile notes=YES
+Display compile progress=YES
+Compatibility=1.1
+Default Window=Main
+Create CHI file=Yes
+Language=0x409 English (United States)
+Default Font=Arial,8,0
+Compiled file=silverjhelp.chm
+Error Log file=silverjhelp.log
+Contents file=silverjhelp.hhc
+Index File=silverjhelp.hhk
+Default Topic=installationhandlingexception.html
+
+[FILES]
+installationhandlingexception.html
+createnewjavaapplicationproject.html
+createnewjavaappletproject.html
+createnewjavaclass.html
+createpackage.html
+addingotherfiles.html
+openproject.html
+openfiles.html
+loadsampleproject.html
+savingfiles.html
+closingfilesproject.html
+changecasecommentline.html
+insertmainfunctionclassevents.html
+appearance.html
+compile.html
+runapplication.html
+runapplet.html
+runwithparameters.html
+autocompileprogram.html
+addfilestoproject.html
+buildexecutablejarapplication.html
+previewhtmlpageviewinwebbrowser.html
+options.html
+removeaddedfilestoproject.html
+autocompletion.html
+automaticobjectcreation.html
+
+
+[WINDOWS]
+Main="Silver-J Help Contents","silverjhelp.hhc","silverjhelp.hhk","installationhandlingexception.html","installationhandlingexception.html", ,,,,0x061520,200, 0x0C387E, [-1, -1, -2, -2]  , 0x307e, , , , , , , , 0
+Popup="Silver-J Help Contents","silverjhelp.hhc","silverjhelp.hhk","installationhandlingexception.html","installationhandlingexception.html", ,,,,0x061520,200, 0x0C387E, [9, 9, 566, 600]  , 0x307e, , , , , , , , 0
+
+
+[MAP]
+#include silverjhelp.h
+
+[TEXT POPUPS]
+CSHelp.txt

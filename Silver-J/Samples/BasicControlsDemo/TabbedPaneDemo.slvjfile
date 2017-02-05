@@ -1,0 +1,52 @@
+import java.awt.*;
+import javax.swing.*;
+public class TabbedPaneDemo extends JFrame
+{
+  TabbedPaneDemo()
+  {
+   setTitle("TabbedPane Demo");
+   JTabbedPane jtp=new JTabbedPane();
+   jtp.setBackground(Color.WHITE);
+   jtp.addTab("Cities",new CitiesPanel());
+   jtp.addTab("Colors",new ColorsPanel());
+   jtp.addTab("Flavors",new FlavorsPanel());
+   getContentPane().add(jtp);
+ }
+class CitiesPanel extends JPanel
+ {
+  public CitiesPanel()
+  {
+   JButton b1=new JButton("Mumbai");
+   add(b1);
+   JButton b2=new JButton("Pune");
+   add(b2);
+   JButton b3=new JButton("Nasik");
+   add(b3);
+   JButton b4=new JButton("Jalgaon");
+   add(b4);
+  }
+}
+class ColorsPanel extends JPanel
+ {
+  public ColorsPanel()
+  {
+   JCheckBox c1=new JCheckBox("Red");
+   add(c1);
+   JCheckBox c2=new JCheckBox("Blue");
+   add(c2);
+   JCheckBox c3=new JCheckBox("Green");
+   add(c3);
+  }
+}
+class FlavorsPanel extends JPanel
+{
+  public FlavorsPanel()
+  {
+   JComboBox cb=new JComboBox();
+   cb.addItem("Vanilla");
+   cb.addItem("Chocolate");
+   cb.addItem("Strawberry");
+   add(cb);
+ }
+}
+}

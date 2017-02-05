@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--  
+
+    Silver-J
+    
+ Free light weight IDE for Java   
+ 
+ Copyright(c) 2016. All rights reserved.
+ 
+-->
+<SilverJConfiguration>
+  <!--JDK Path-->
+  <JDKPath>null</JDKPath>
+  <!-- web browser -->
+  <WebBrowser>
+  </WebBrowser>
+  <!--text editro font & font size-->
+  <Font>Microsoft YaHei UI</Font>
+  <FontSize>10</FontSize>
+  <!--views-->
+  <!--Appearance-->
+  <Appearance>Default</Appearance>
+  <!--text editor views-->
+  <ShowLineNumbers>true</ShowLineNumbers>
+  <ShowLineHighlighter>false</ShowLineHighlighter>
+  <ShowInvalidLines>false</ShowInvalidLines>
+  <ShowEndOfLineMarker>false</ShowEndOfLineMarker>
+  <ShowVisibleSpaces>false</ShowVisibleSpaces>
+  <BracesMatching>true</BracesMatching>
+  <AutoCompleteBraces>true</AutoCompleteBraces>
+  <!--split containers-->
+  <SplitContainer1>1040</SplitContainer1>
+  <SplitContainer2>519</SplitContainer2>
+  <SplitContainer3>281</SplitContainer3>
+  <SplitContainer4>301</SplitContainer4>
+  <!--tabs,documents etc views-->
+  <TabsAlignment>Top</TabsAlignment>
+  <ShowStatusStrip>true</ShowStatusStrip>
+  <ShowToolStrip>true</ShowToolStrip>
+  <ShowProjectExplorer>true</ShowProjectExplorer>
+  <ShowClassesView>true</ShowClassesView>
+  <ShowMethodsView>true</ShowMethodsView>
+  <ShowErrorList>true</ShowErrorList>
+  <ShowErrorDialog>true</ShowErrorDialog>
+  <ShowStartPageOnStartUp>true</ShowStartPageOnStartUp>
+  <!--Auto Compile Java-->
+  <AutoCompileJava>false</AutoCompileJava>
+  <!--Auto Completion Mode-->
+  <AutoCompletion>false</AutoCompletion>
+</SilverJConfiguration>

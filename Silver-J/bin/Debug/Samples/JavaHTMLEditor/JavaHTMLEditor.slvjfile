@@ -1,0 +1,907 @@
+/*
+
+  JavaHTMLEditor.java
+  
+  Silver-J demo java project
+
+*/
+
+
+import javax.swing.*;
+
+import java.awt.*;
+
+import javax.swing.event.*;
+
+import java.awt.event.*;
+import java.awt.datatransfer.*;
+import java.io.*;
+import java.net.*;
+
+import javax.swing.text.*;
+
+import java.awt.Color;
+import java.awt.FileDialog;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Toolkit;
+
+import javax.swing.undo.*;
+import javax.swing.text.DefaultHighlighter;
+import javax.swing.text.Highlighter;
+import javax.swing.text.Highlighter.HighlightPainter;
+
+
+public class JavaHTMLEditor extends JFrame
+{
+
+	private int findLastNonWordChar (String text, int index)
+    {
+        while (--index >= 0)
+        {
+            if (String.valueOf(text.charAt(index)).matches("\\W"))
+            {
+                break;
+            }
+        }
+        return index;
+    }
+	
+private int findFirstNonWordChar (String text, int index)
+{
+        while (index < text.length())
+        {
+            if (String.valueOf(text.charAt(index)).matches("\\W")) {
+                break;
+            }
+            index++;
+        }
+        return index;
+    }
+
+	  Clipboard clip = getToolkit().getSystemClipboard();
+
+
+      final StyleContext cont = StyleContext.getDefaultStyleContext();
+      final AttributeSet blue = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, Color.BLUE);
+      final AttributeSet black = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, Color.BLACK);
+      final AttributeSet red = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, Color.RED);
+      final AttributeSet green = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, new Color(0,150,0));
+      final AttributeSet red1 = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, new Color(180,0,0));
+      final AttributeSet orange = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground,new Color(255,120,0));
+      final AttributeSet magenta = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, Color.MAGENTA);
+      final AttributeSet cyan = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, new Color(9,84,84));
+      final AttributeSet blue1 = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, new Color(0,0,140));
+      final AttributeSet white = cont.addAttribute(cont.getEmptySet(), StyleConstants.Foreground, new Color(255,255,255));
+	  
+      DefaultStyledDocument doc = new DefaultStyledDocument() {
+          public void insertString (int offset, String str, AttributeSet a) throws BadLocationException
+          {
+              super.insertString(offset, str, a);
+              String text = getText(0, getLength());
+              int before = findLastNonWordChar(text, offset);
+              if (before < 0) before = 0;
+              int after = findFirstNonWordChar(text, offset + str.length());
+              int wordL = before;
+              int wordR = before;
+
+              while (wordR <= after)
+              {
+                  if (wordR == after || String.valueOf(text.charAt(wordR)).matches("\\W"))
+                  {
+                      if (text.substring(wordL, wordR).matches("(\\W)*(html||HTML||title||TITLE||body||BODY||head||HEAD||a||A||style||STYLE||h1||H1||"
+                              + "||h2||H2||h3||H3||h4||H4||h5||H5||h6||H6||'<||label||LABEL)"))
+                          setCharacterAttributes(wordL, wordR - wordL, blue, false);
+                      else if(text.substring(wordL,wordR).matches("(\\W)*(css||CSS||http||HTTP||www||WWW||bgcolor||BGCOLOR||org||ORG||co.in||CO.IN||script||SCRIPT||tr||TR||th||TH||td||TD||value||VALUE||com||COM||net||NET||form||FORM||fieldset||FIELDSET)"))
+                          setCharacterAttributes(wordL, wordR - wordL, red, false);
+                      else if(text.substring(wordL,wordR).matches("(\\W)*(object||OBJECT||b||B||i||I||u||U||meta||META||link||LINK||strike||STRIKE||class||CLASS||sup||SUP||sub||SUB||img||IMG||type||TYPE||action||ACTION)"))
+                          setCharacterAttributes(wordL, wordR - wordL, green, false);
+                      else if(text.substring(wordL,wordR).matches("(\\W)*(center||CENTER||<p||<P||br||BR||src||div||DIV||SRC||li||LI||href||HREF||cols||COLS||rows||ROWS||border||BORDER||bordercolor"
+                              + "||BORDERCOLOR||rowspan||ROWSPAN||colspan||COLSPAN)"))
+                          setCharacterAttributes(wordL, wordR - wordL, red1, false);
+                      else if(text.substring(wordL,wordR).matches("(\\W)*(param||PARAM||select||SELECT||font||FONT||family||FAMILY||caption||CAPTION||cellspacing||CELLSPACING||cellpadding||CELLPADDINGfontface||FONTFACE||hr||HR||hn||HN||Hn||pre||PRE||marquee||MARQUEE||method||METHOD)"))
+                          setCharacterAttributes(wordL, wordR - wordL, orange, false);
+                      else if(text.substring(wordL,wordR).matches("(\\W)*(audio||AUDIO||video||VIDEO||size||SIZE||color||COLOR||align||ALIGN||ol||OL||ul||UL||strong||STRONG||em||EM||big||BIG||small||SMALL||name||NAME||iframe||IFRAME)"))
+                          setCharacterAttributes(wordL, wordR - wordL, magenta, false);
+                      else if(text.substring(wordL,wordR).matches("(\\W)*(table||TABLE||behavior||BEHAVIOR||direction||DIRECTION"
+                              + "||scrollamount||SCROLLAMOUNT||scrolldelay||SCROLLDELAY||bgcolor||BGCOLOR||frame||FRAME||option||OPTION||frameset||FRAMESET||width||WIDTH||height||HEIGHT)"))
+                          setCharacterAttributes(wordL, wordR - wordL,cyan, false);
+                      else if(text.substring(wordL,wordR).matches("(\\W)*(input||INPUT||button||BUTTON||text||TEXT||password||PASSWORD"
+                              + "||textarea||TEXTAREA||radio||RADIO||checkbox||CHECKBOX||submit||SUMBIT)"))
+                          setCharacterAttributes(wordL, wordR - wordL,blue1, false);
+                         else
+                          setCharacterAttributes(wordL, wordR - wordL, black, false);
+                      wordL = wordR;
+                  }
+                  wordR++;
+              }
+
+          }
+		  
+          public void remove (int offs, int len) throws BadLocationException
+          {
+              super.remove(offs, len);
+              String text = getText(0, getLength());
+              int before = findLastNonWordChar(text, offs);
+              if (before < 0) before = 0;
+              int after = findFirstNonWordChar(text, offs);
+              if (text.substring(before, after).matches("(\\W)*(html||HTML||title||TITLE||body||BODY||head||HEAD||a||A||style||STYLE||h1||H1||"
+                      + "||h2||H2||h3||H3||h4||H4||h5||H5||h6||H6||'<||label||LABEL)"))
+                  setCharacterAttributes(before, after - before, blue, false);
+               else if(text.substring(before, after).matches("(\\W)*(css||CSS||http||HTTP||www||WWW||bgcolor||BGCOLOR||org||ORG||co.in||CO.IN||com||COM||net||NET||value||VALUE||fieldset||FIELDSET)"))
+                     setCharacterAttributes(before, after - before, red, false);
+                else if(text.substring(before, after).matches("(\\W)*(object||OBJECT||b||B||i||I||u||U||strike||STRIKE||meta||META||link||LINK||class||CLASS||sup||SUP||sub||SUB||img||IMG||type||TYPE)"))
+                     setCharacterAttributes(before, after - before, green, false);
+                else if(text.substring(before, after).matches("(\\W)*(center||CENTER||<p||<P||br||BR||src||div||DIV||SRC||li||LI||href||HREF||cols||COLS||rows||ROWS||border||BORDER||bordercolor"
+                              + "||BORDERCOLOR||rowspan||ROWSPAN||colspan||COLSPAN)"))
+                     setCharacterAttributes(before, after - before, red1, false);
+                  else if(text.substring(before, after).matches("(\\W)*(param||PARAM||select||SELECT||font||FONT||family||FAMILY||caption||CAPTION||fontface||FONTFACE||cellspacing||CELLSPACING||cellpadding||CELLPADDING||hr||HR||hn||HN||Hn||pre||PRE||marquee||MARQUEE)"))
+                     setCharacterAttributes(before, after - before, orange, false);
+                     else if(text.substring(before, after).matches("(\\W)*(audio||AUDIO||video||VIDEO||size||SIZE||color||COLOR||align||ALIGN||ol||OL||ul||UL||strong||STRONG||em||EM||big||BIG||small||SMALL||name||NAME||iframe||IFRAME)"))
+                     setCharacterAttributes(before, after - before, magenta, false);
+                  else if(text.substring(before, after).matches("(\\W)*(table||TABLE||behavior||BEHAVIOR||direction||DIRECTION"
+                              + "||scrollamount||SCROLLAMOUNT||scrolldelay||SCROLLDELAY||bgcolor||BGCOLOR||frame||FRAME||option||OPTION||frameset||FRAMESET||width||WIDTH||height||HEIGHT)"))
+                     setCharacterAttributes(before, after - before, cyan, false);
+                  else if(text.substring(before, after).matches("(\\W)*(input||INPUT||button||BUTTON||text||TEXT||password||PASSWORD"
+                              + "||textarea||TEXTAREA||radio||RADIO||checkbox||CHECKBOX||submit||SUMBIT)"))
+                     setCharacterAttributes(before, after - before, blue1, false);
+
+                  else
+                     setCharacterAttributes(before, after - before, black, false);
+          }
+      };
+
+
+    //variable declaration
+
+  	JTextPane tx;
+  	JTextArea lines;
+  	JScrollPane jsp,htmlscroll;
+    Caret txcaret;
+    JPanel toolpanel,statuspanel;
+    JTextArea documentName;
+    JEditorPane htmlpane;
+    JSplitPane jsplit;
+    JToolBar jtb;
+    String filename;
+
+    UndoManager manager = new UndoManager();
+   Action undoAction = new UndoAction(manager);
+   Action redoAction = new RedoAction(manager);
+
+   JDialog finddiag;
+   JTextField getfindword;
+   HighlightPainter painter = new DefaultHighlighter.DefaultHighlightPainter(Color.orange);
+
+   
+   
+  public JavaHTMLEditor()
+  {
+	  tx=new JTextPane();
+
+	  lines=new JTextArea("1");
+      lines.setEditable(false);
+      lines.setBackground(new Color(230,230,203));
+       lines.setFont(new Font("Microsoft Ya Hei UI",Font.PLAIN,12));
+      tx = new JTextPane(doc);
+      tx.setMinimumSize(new Dimension(500, 500));
+      tx.setFont(new Font("Microsoft Ya Hei UI",Font.PLAIN,12));
+      tx.getDocument().addUndoableEditListener(manager);
+      txcaret=tx.getCaret();
+      tx.getDocument().addDocumentListener(new DocumentListener()
+                                     {
+			public String getText()
+                                                 {
+				int caretPosition = tx.getDocument().getLength();
+				Element root = tx.getDocument().getDefaultRootElement();
+				String text = "1" + System.getProperty("line.separator");
+                                                                       for(int i = 2; i <=root.getElementIndex( caretPosition )+2; i++)
+                                                                          {
+					text += i + System.getProperty("line.separator");
+				}
+				return text;
+			}
+			@Override
+			public void changedUpdate(DocumentEvent de) {
+				lines.setText(getText());
+			}
+
+			@Override
+			public void insertUpdate(DocumentEvent de) {
+				lines.setText(getText());
+			}
+
+			@Override
+			public void removeUpdate(DocumentEvent de) {
+				lines.setText(getText());
+			}
+
+		});
+
+		
+		
+      jsp=new JScrollPane(tx);
+      jsp.setBackground(Color.WHITE);
+      tx.setMinimumSize(new Dimension(400,500));
+      jsp.setRowHeaderView(lines);
+     JMenuBar mb = new JMenuBar();
+     mb.setPreferredSize(new Dimension(1000,26));
+
+     //File menu
+     JMenu filemenu=new JMenu("  File  ");
+
+     JMenuItem file_new=new JMenuItem("New                                         ");
+     JMenuItem file_open=new JMenuItem("Open");
+     JMenuItem file_save=new JMenuItem("Save");
+     JMenuItem file_saveas=new JMenuItem("Save As");
+     JMenuItem file_preview=new JMenuItem("Preview");
+     JMenuItem file_viewinwebbrowser=new JMenuItem("View in Web Browser");
+     JMenuItem file_exit=new JMenuItem("Exit");
+
+     file_new.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,ActionEvent.CTRL_MASK));
+     file_open.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O,ActionEvent.CTRL_MASK));
+     file_save.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,ActionEvent.CTRL_MASK));
+     file_preview.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P,ActionEvent.ALT_MASK));
+     file_viewinwebbrowser.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W,ActionEvent.ALT_MASK));
+
+     file_new.addActionListener(new File_NewAction());
+     file_open.addActionListener(new File_OpenAction());
+     file_save.addActionListener(new File_SaveAction());
+     file_saveas.addActionListener(new File_SaveAsAction());
+     file_preview.addActionListener(new File_PreviewAction());
+     file_viewinwebbrowser.addActionListener(new File_ViewInWebBrowserAction());
+     file_exit.addActionListener(new File_ExitAction());
+
+     filemenu.add(file_new);
+     filemenu.addSeparator();
+     filemenu.add(file_open);
+     filemenu.addSeparator();
+     filemenu.add(file_save);
+     filemenu.add(file_saveas);
+     filemenu.addSeparator();
+     filemenu.add(file_preview);
+     filemenu.addSeparator();
+     filemenu.add(file_viewinwebbrowser);
+     filemenu.addSeparator();
+     filemenu.add(file_exit);
+
+     mb.add(filemenu);
+
+     //Edit menu
+     JMenu editmenu=new JMenu("  Edit  ");
+
+     JMenuItem edit_cut=new JMenuItem("Cut                                         ");
+     JMenuItem edit_copy=new JMenuItem("Copy");
+     JMenuItem edit_paste=new JMenuItem("Paste");
+     JMenuItem edit_undo=new JMenuItem("Undo");
+     JMenuItem edit_redo=new JMenuItem("Redo");
+     JMenuItem edit_find=new JMenuItem("Find");
+     JMenuItem edit_selectall=new JMenuItem("Select All");
+
+     edit_cut.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X,ActionEvent.CTRL_MASK));
+     edit_copy.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C,ActionEvent.CTRL_MASK));
+     edit_paste.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V,ActionEvent.CTRL_MASK));
+     edit_undo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z,ActionEvent.CTRL_MASK));
+     edit_redo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Y,ActionEvent.CTRL_MASK));
+     edit_selectall.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A,ActionEvent.CTRL_MASK));
+
+     edit_cut.addActionListener(new Edit_CutAction());
+     edit_copy.addActionListener(new Edit_CopyAction());
+     edit_paste.addActionListener(new Edit_PasteAction());
+     edit_undo.addActionListener(undoAction);
+     edit_redo.addActionListener(redoAction);
+     edit_find.addActionListener(new Edit_FindAction());
+     edit_selectall.addActionListener(new Edit_SelectAllAction());
+
+     editmenu.add(edit_cut);
+     editmenu.add(edit_copy);
+     editmenu.add(edit_paste);
+     editmenu.addSeparator();
+     editmenu.add(edit_undo);
+     editmenu.add(edit_redo);
+     editmenu.addSeparator();
+     editmenu.add(edit_find);
+     editmenu.addSeparator();
+     editmenu.add(edit_selectall);
+
+     mb.add(editmenu);
+
+
+     //Insert menu
+     JMenu insertmenu=new JMenu("  Insert  ");
+
+     JMenuItem insert_link=new JMenuItem("Link                                                            ");
+     JMenuItem insert_image=new JMenuItem("Image");
+     JMenuItem insert_paragraph=new JMenuItem("Paragraph");
+     JMenuItem insert_newline=new JMenuItem("New Line");
+     JMenuItem insert_heading_1=new JMenuItem("Heading 1");
+     JMenuItem insert_heading_2=new JMenuItem("Heading 2");
+     JMenuItem insert_heading_3=new JMenuItem("Heading 3");
+     JMenuItem insert_heading_4=new JMenuItem("Heading 4");
+     JMenuItem insert_heading_5=new JMenuItem("Heading 5");
+     JMenuItem insert_heading_6=new JMenuItem("Heading 6");
+     JMenuItem insert_comment=new JMenuItem("Comment");
+     JMenuItem insert_bold=new JMenuItem("Bold");
+     JMenuItem insert_italic=new JMenuItem("Italic");
+     JMenuItem insert_underline=new JMenuItem("Underline");
+     JMenuItem insert_button=new JMenuItem("Button");
+     JMenuItem insert_radiobutton=new JMenuItem("Radio Button");
+     JMenuItem insert_checkbox=new JMenuItem("Check Box");
+     JMenuItem insert_textfield=new JMenuItem("Text Field");
+     JMenuItem insert_passwordfield=new JMenuItem("Password Field");
+     JMenuItem insert_textarea=new JMenuItem("Text Area");
+
+     InsertAction insa=new InsertAction();
+     insert_link.addActionListener(insa);
+     insert_image.addActionListener(insa);
+     insert_paragraph.addActionListener(insa);
+     insert_newline.addActionListener(insa);
+     insert_heading_1.addActionListener(insa);
+     insert_heading_2.addActionListener(insa);
+     insert_heading_3.addActionListener(insa);
+     insert_heading_4.addActionListener(insa);
+     insert_heading_5.addActionListener(insa);
+     insert_heading_6.addActionListener(insa);
+     insert_comment.addActionListener(insa);
+     insert_bold.addActionListener(insa);
+     insert_italic.addActionListener(insa);
+     insert_underline.addActionListener(insa);
+     insert_button.addActionListener(insa);
+     insert_radiobutton.addActionListener(insa);
+     insert_checkbox.addActionListener(insa);
+     insert_textfield.addActionListener(insa);
+     insert_passwordfield.addActionListener(insa);
+     insert_textarea.addActionListener(insa);
+
+     insertmenu.add(insert_link);
+     insertmenu.add(insert_image);
+     insertmenu.add(insert_paragraph);
+     insertmenu.add(insert_newline);
+     insertmenu.addSeparator();
+     insertmenu.add(insert_heading_1);
+     insertmenu.add(insert_heading_2);
+     insertmenu.add(insert_heading_3);
+     insertmenu.add(insert_heading_4);
+     insertmenu.add(insert_heading_5);
+     insertmenu.add(insert_heading_6);
+     insertmenu.addSeparator();
+     insertmenu.add(insert_comment);
+     insertmenu.addSeparator();
+     insertmenu.add(insert_bold);
+     insertmenu.add(insert_italic);
+     insertmenu.add(insert_underline);
+     insertmenu.addSeparator();
+     insertmenu.add(insert_button);
+     insertmenu.add(insert_radiobutton);
+     insertmenu.add(insert_checkbox);
+     insertmenu.add(insert_textfield);
+     insertmenu.add(insert_passwordfield);
+     insertmenu.add(insert_textarea);
+
+     mb.add(insertmenu);
+
+     //Help menu
+     JMenu helpmenu=new JMenu("  Help  ");
+
+     JMenuItem help_helpcontents=new JMenuItem("Online Help                  ");
+     JMenuItem help_about=new JMenuItem("About..........");
+
+     help_about.addActionListener(new Help_AboutAction());
+
+     helpmenu.add(help_helpcontents);
+     helpmenu.add(help_about);
+
+     mb.add(helpmenu);
+
+     setJMenuBar(mb);
+
+     //create and add toolbar
+     jtb=new JToolBar();
+
+     JButton previewbut=new JButton("Preview");
+     previewbut.setFont(new Font("Microsoft Ya Hei UI",Font.PLAIN,14));
+     JButton viewbrowsebut=new JButton("View in Web Browser");
+     viewbrowsebut.setFont(new Font("Microsoft Ya Hei UI",Font.PLAIN,14));
+
+     previewbut.addActionListener(new File_PreviewAction());
+     viewbrowsebut.addActionListener(new File_ViewInWebBrowserAction());
+
+     jtb.add(previewbut);
+     jtb.addSeparator();
+     jtb.addSeparator();
+     jtb.add(viewbrowsebut);
+
+     add(jtb,BorderLayout.NORTH);
+
+
+     try
+ {
+    htmlpane=new JEditorPane();
+    htmlpane.setText("");
+    htmlpane.setContentType("text/html");
+    htmlpane.setMinimumSize(new Dimension(200,500));
+    htmlpane.setEditable(false);
+    htmlpane.putClientProperty(JEditorPane.HONOR_DISPLAY_PROPERTIES,Boolean.TRUE);
+    htmlpane.setAutoscrolls(true);
+    htmlscroll=new JScrollPane(htmlpane);
+ }
+ catch(Exception e)
+{
+e.printStackTrace();
+System.out.println("Some problem has occured"+e.getMessage());
+}
+   jsplit = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, jsp,htmlscroll);
+   jsplit.setContinuousLayout(true);
+   jsplit.setOneTouchExpandable(true);
+   jsplit.setDividerLocation(800);
+   jsplit.setSize(500,300);
+   documentName=new JTextArea("Unsaved Document");
+   documentName.setEditable(false);
+  documentName.setBackground(Color.white);
+   documentName.setFont(new Font("Serif",Font.PLAIN,13));
+   documentName.setLayout(new GridLayout(5,5));
+   add(documentName,BorderLayout.SOUTH);
+   add(jsplit,BorderLayout.CENTER);
+  }
+
+
+  
+  
+  //File->New
+  class File_NewAction implements ActionListener
+  {
+      public void actionPerformed(ActionEvent e)
+      {
+    	  tx.setText("");
+    	  setTitle("HTML Editor in Java");
+    	  documentName.setText("Unsaved Document");
+      }
+  }
+
+  
+  
+  //File->Open
+  class File_OpenAction implements ActionListener
+  {
+  public void actionPerformed(ActionEvent e)
+      {
+	  JFrame f=new JFrame();
+      FileDialog fd = new FileDialog(f, "Select File",FileDialog.LOAD);
+      fd.show();
+      if (fd.getFile()!=null)
+          {
+          filename = fd.getDirectory() + fd.getFile();
+          setTitle(filename);
+          documentName.setText(filename);
+          ReadFile();
+      }
+      tx.requestFocus();
+  }
+}
+  //ReadFile() function
+  void ReadFile()
+      {
+      BufferedReader d;
+      StringBuffer sb = new StringBuffer();
+      try
+          {
+          d = new BufferedReader(new FileReader(filename));
+          String line;
+          while((line=d.readLine())!=null)
+          sb.append(line + "\n");
+          tx.setText(sb.toString());
+          d.close();
+      }
+      catch(FileNotFoundException fe)
+          {
+          System.out.println("File not Found");
+      }
+      catch(IOException ioe){}
+  }
+
+  
+  
+
+  //File->Save
+  class File_SaveAction implements ActionListener
+  {
+	  public void actionPerformed(ActionEvent e)
+	  {
+		  String fname=documentName.getText();
+		  if(fname!="Unsaved Document")
+		  {
+	          try
+              {
+              DataOutputStream d = new DataOutputStream(new FileOutputStream(fname));
+              String line = tx.getText();
+              BufferedReader br = new BufferedReader(new StringReader(line));
+              while((line = br.readLine())!=null)
+                  {
+            	  d.writeBytes(line+"\n");
+              }
+          }
+          catch(Exception ex)
+              {
+              System.out.println("File not found");
+          }
+		  }
+	  }
+  }
+
+  
+  
+  //File->Save As
+  class File_SaveAsAction implements ActionListener
+  {
+  public void actionPerformed(ActionEvent e)
+      {
+	  JFrame f=new JFrame();
+      FileDialog fd = new FileDialog(f,"Save File",FileDialog.SAVE);
+      fd.show();
+      if (fd.getFile()!=null)
+          {
+          filename = fd.getDirectory() + fd.getFile();
+          setTitle(filename);
+          documentName.setText(filename);
+          try
+              {
+              DataOutputStream d = new DataOutputStream(new FileOutputStream(filename));
+              String line = tx.getText();
+              BufferedReader br = new BufferedReader(new StringReader(line));
+              while((line = br.readLine())!=null)
+                  {
+            	  d.writeBytes(line+"\n");
+              }
+          }
+          catch(Exception ex)
+              {
+              System.out.println("File not found");
+          }
+          tx.requestFocus();
+      }
+  }
+}
+
+
+
+  //File->Preview
+  class File_PreviewAction implements ActionListener
+  {
+	  public void actionPerformed(ActionEvent ev)
+	  {
+          String html;
+          html=tx.getText();
+          try
+          {
+             htmlpane.setContentType("text/html");
+             htmlpane.setText(html);
+          }
+        catch(Exception e)
+       {
+         e.printStackTrace();
+         System.out.println("Some problem has occured"+e.getMessage());
+       }
+	 }
+  }
+
+  
+  
+  //File->View in Web Browser
+  class File_ViewInWebBrowserAction implements ActionListener
+  {
+	  public void actionPerformed(ActionEvent e)
+	  {
+		  String str=getTitle();
+		  if(str!="HTML Editor in Java")
+		  {
+              try
+           {
+         Runtime rTime = Runtime.getRuntime();
+        String browser = "C:/Program Files/Internet Explorer/iexplore.exe ";
+        Process pc = rTime.exec(browser + str);
+           }
+           catch(Exception Ex)
+           {
+           }
+		  }
+	  }
+  }
+
+  
+  
+  //File->Exit
+  class File_ExitAction implements ActionListener
+  {
+	  public void actionPerformed(ActionEvent ev)
+	  {
+          System.exit(0);
+	 }
+  }
+
+  
+  
+//Edit->Cut
+  class Edit_CutAction implements ActionListener
+      {
+      public void actionPerformed(ActionEvent e)
+          {
+          String sel = tx.getSelectedText();
+          StringSelection ss = new StringSelection(sel);
+          clip.setContents(ss,ss);
+          tx.replaceSelection(sel);
+      }
+  }
+
+  
+  
+
+  //Edit->Copy
+  class Edit_CopyAction implements ActionListener
+      {
+      public void actionPerformed(ActionEvent e)
+          {
+          String sel = tx.getSelectedText();
+          StringSelection clipString = new StringSelection(sel);
+          clip.setContents(clipString,clipString);
+      }
+  }
+
+
+  
+  
+  //Edit->Paste
+  class Edit_PasteAction implements ActionListener
+      {
+      public void actionPerformed(ActionEvent e)
+          {
+          Transferable cliptran = clip.getContents(JavaHTMLEditor.this);
+          try
+              {
+              String sel = (String) cliptran.getTransferData(DataFlavor.stringFlavor);
+              tx.replaceSelection(sel);
+          }
+          catch(Exception exc)
+              {
+              System.out.println("not string flavour");
+          }
+      }
+  }
+
+  
+
+  // Class Undo action
+  public class UndoAction extends AbstractAction
+  {
+ 	 UndoManager manager;
+    public UndoAction(UndoManager manager)
+    {
+      this.manager = manager;
+    }
+  public void actionPerformed(ActionEvent evt)
+  {
+      try
+      {
+        manager.undo();
+      }
+      catch (CannotUndoException e)
+      {
+        Toolkit.getDefaultToolkit().beep();
+      }
+    }
+  }
+
+  
+  
+
+  //Class Redo action
+  public class RedoAction extends AbstractAction
+  {
+ 	 UndoManager manager;
+    public RedoAction(UndoManager manager)
+    {
+      this.manager = manager;
+    }
+    public void actionPerformed(ActionEvent evt)
+    {
+      try
+      {
+        manager.redo();
+      }
+      catch (CannotRedoException e)
+      {
+        Toolkit.getDefaultToolkit().beep();
+      }
+    }
+  }
+
+  
+  
+  //Edit->Find
+  class Edit_FindAction implements ActionListener
+  {
+        JLabel getwordlabel;
+      public void actionPerformed(ActionEvent evt)
+      {
+          finddiag=new JDialog(new JDialog(),true);
+          finddiag.setSize(300,100);
+          finddiag.setResizable(false);
+          finddiag.setTitle("Find.......");
+          finddiag.setLocation(300,200);
+          finddiag.setAlwaysOnTop(true);
+          finddiag.setLayout(new FlowLayout());
+          getwordlabel=new JLabel("Find What ?");
+          getwordlabel.setFont(new Font("Lucida",Font.PLAIN,14));
+          getfindword=new JTextField(13);
+          getfindword.setFont(new Font("Lucida",Font.PLAIN,12));
+          JButton finddone=new JButton("Find");
+          finddone.setFont(new Font("Lucida",Font.PLAIN,14));
+          finddone.addActionListener(new FindDoneAction());
+          JButton findclose=new JButton("Close");
+          findclose.setFont(new Font("Lucida",Font.PLAIN,14));
+          findclose.addActionListener(new FindCloseAction());
+          finddiag.add(getwordlabel);
+          finddiag.add(getfindword);
+          finddiag.add(finddone);
+          finddiag.add(findclose);
+          finddiag.setVisible(true);
+      }
+  }
+  class FindDoneAction implements ActionListener
+  {
+      public void actionPerformed(ActionEvent replacedoneEvt)
+      {
+          String getword=getfindword.getText();
+          int start=tx.getText().indexOf(getword);
+          int end=getword.length();
+           if(start>=0 && getword.length()>0)
+          {
+            tx.select(start,start+end);
+                   try
+           {
+          Highlighter highlighter = tx.getHighlighter();
+           highlighter.addHighlight(start, start+end, painter );
+           }
+           catch(Exception ex){}
+           }
+          }
+      }
+  class FindCloseAction implements ActionListener
+  {
+      public void actionPerformed(ActionEvent replacedoneEvt)
+      {
+          finddiag.setVisible(false);
+       }
+  }
+
+  
+  
+  //Edit->Select All
+  class Edit_SelectAllAction implements ActionListener
+  {
+		public void actionPerformed(ActionEvent e)
+		{
+			      tx.selectAll();
+		}
+  }
+
+  
+  
+  public void InsertTags(String tag)
+  {
+      StyledDocument docinst = tx.getStyledDocument();
+      try
+      {
+         int sel=tx.getCaretPosition();
+         docinst.insertString(sel, tag ,null);
+      }
+    catch(Exception ex)
+    {
+         System.out.println(ex);
+    }
+  }
+
+  //Insert menu
+  //all actions of Insert menu items
+  class InsertAction implements ActionListener
+  {
+	  public void actionPerformed(ActionEvent e)
+	  {
+		  if(e.getSource() instanceof JMenuItem)
+		  {
+			  String s=e.getActionCommand();
+			  String str=s.trim();
+
+			  switch(str)
+			  {
+			  case "Link" : InsertTags("<a href=\"\" >  </a>");
+			  break;
+
+			  case "Image" : InsertTags("<img src=\"\"  width=\"\"  height=\"\" />");
+              break;
+
+			  case "Paragraph" : InsertTags("<p>");
+              break;
+
+			  case "New Line" : InsertTags("<br>");
+              break;
+
+			  case "Heading 1" : InsertTags("<h1>Heading 1</h1>");
+              break;
+
+			  case "Heading 2" : InsertTags("<h2>Heading 2</h2>");
+              break;
+
+			  case "Heading 3" : InsertTags("<h3>Heading 3</h3>");
+              break;
+
+			  case "Heading 4" : InsertTags("<h4>Heading 4</h4>");
+              break;
+
+			  case "Heading 5" : InsertTags("<h5>Heading 5</h5>");
+              break;
+
+			  case "Heading 6" : InsertTags("<h6>Heading 6</h6>");
+              break;
+
+			  case "Comment" : InsertTags("<!--  comment  -->");
+              break;
+
+			  case "Bold" : InsertTags("<b>bold</b>");
+              break;
+
+			  case "Italic" : InsertTags("<i>italic</i>");
+              break;
+
+			  case "Underline" : InsertTags("<u>underline</u>");
+              break;
+
+			  case "Button" : InsertTags("<input type=\"button\" value=\"Button\"></input>");
+              break;
+
+			  case "Radio Button" : InsertTags("<input type=\"radio\" value=\"Radio Button\"></input>");
+              break;
+
+			  case "Check Box" : InsertTags("<input type=\"checkbox\" value=\"CheckBox\"></input>");
+              break;
+
+			  case "Text Field" : InsertTags("<input type=\"text\"></input>");
+              break;
+
+			  case "Password Field" : InsertTags("<input type=\"password\"></input>");
+              break;
+
+			  case "Text Area" : InsertTags("<textarea rows=\"10\" cols=\"10\"></textarea>");
+              break;
+			  }
+
+		  }
+	  }
+  }
+
+  //Help->About
+  class Help_AboutAction implements ActionListener
+  {
+	  public void actionPerformed(ActionEvent ev)
+	  {
+		    JOptionPane.showMessageDialog(null, "HTML Editor in Java", "About",JOptionPane.INFORMATION_MESSAGE);
+	 }
+  }
+
+  //main method
+  public static void main(String[] args)
+  {
+	  try
+	    {
+	     UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel");
+	    }
+	    catch (Exception e)
+	    {
+	      e.printStackTrace();
+	    }
+	  JFrame jf=new JavaHTMLEditor();
+	  jf.setTitle("HTML Editor in Java");
+	  jf.setExtendedState(6);
+	  jf.setSize(600,500);
+	  jf.setVisible(true);
+  }
+}

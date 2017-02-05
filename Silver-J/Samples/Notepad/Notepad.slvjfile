@@ -1,0 +1,563 @@
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.datatransfer.*;
+import java.io.*;
+import javax.swing.undo.*;
+import javax.swing.text.DefaultHighlighter;
+import javax.swing.text.Highlighter;
+import javax.swing.text.Highlighter.HighlightPainter;
+
+public class Notepad extends JFrame
+    {
+     String filename;
+     JTextPane tx;
+     Clipboard clip = getToolkit().getSystemClipboard();
+     JColorChooser chooser = new JColorChooser(Color.WHITE);
+     UndoManager manager = new UndoManager();
+    Action undoAction = new UndoAction(manager);
+    Action redoAction = new RedoAction(manager);
+    JDialog finddiag;
+    JTextField getfindword;
+    HighlightPainter painter = new DefaultHighlighter.DefaultHighlightPainter(Color.orange);
+
+      Notepad()
+       {
+         setLayout(new GridLayout(1,1));
+         //create new TextArea & add it ti JFrame
+         tx = new JTextPane();
+         JScrollPane jscrollp=new JScrollPane(tx);
+         tx.getDocument().addUndoableEditListener(manager);
+         add(jscrollp);
+         //Create JMenuBar
+         JMenuBar mb = new JMenuBar();
+         //Create File menu
+         JMenu F = new JMenu(" File ");
+         F.setFont(new Font("Segoe UI",Font.PLAIN,12));
+         //File->New
+         JMenuItem n = new JMenuItem("New                             ");
+         n.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,ActionEvent.CTRL_MASK));
+         //File->Open
+         JMenuItem o = new JMenuItem("Open");
+         o.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O,ActionEvent.CTRL_MASK));
+         //File->Save
+         JMenuItem s = new JMenuItem("Save");
+         s.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,ActionEvent.CTRL_MASK));
+         //File->Exit
+         JMenuItem e = new JMenuItem("Exit");
+         //add action listener to menu items and add those to F
+         n.addActionListener(new New());
+         F.add(n);
+         F.addSeparator();
+         o.addActionListener(new Open());
+         F.add(o);
+         F.addSeparator();
+         s.addActionListener(new Save());
+         F.add(s);
+         F.addSeparator();
+         e.addActionListener(new Exit());
+         F.add(e);
+         mb.add(F);
+         //Create Edit menu
+         JMenu E = new JMenu(" Edit ");
+         E.setFont(new Font("Segoe UI",Font.PLAIN,12));
+         //Edit->Cut
+         JMenuItem cut = new JMenuItem("Cut                         ");
+         cut.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X,ActionEvent.CTRL_MASK));
+         //Edit->Copy
+         JMenuItem copy = new JMenuItem("Copy");
+         copy.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C,ActionEvent.CTRL_MASK));
+         //Edit->Paste
+         JMenuItem paste = new JMenuItem("Paste");
+         paste.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V,ActionEvent.CTRL_MASK));
+         //Edit->Undo
+         JMenuItem undo = new JMenuItem("Undo");
+         undo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z,ActionEvent.CTRL_MASK));
+         //Edit->Redo
+         JMenuItem redo = new JMenuItem("Redo");
+         redo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Y,ActionEvent.CTRL_MASK));
+         //Edit->Find
+         JMenuItem find=new JMenuItem("Find");
+         //Edit->Select All
+         JMenuItem selectall=new JMenuItem("Select All");
+         selectall.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A,ActionEvent.CTRL_MASK));
+         //Edit->Text Color
+         JMenuItem textcolor=new JMenuItem("Text Color");
+         //Edit->Back Color
+         JMenuItem backcolor=new JMenuItem("Back Color");
+
+         cut.addActionListener(new Cut());
+         E.add(cut);
+         copy.addActionListener(new Copy());
+         E.add(copy);
+         paste.addActionListener(new Paste());
+         E.add(paste);
+         E.addSeparator();
+         undo.addActionListener(undoAction);
+         E.add(undo);
+         redo.addActionListener(redoAction);
+         E.add(redo);
+         E.addSeparator();
+         find.addActionListener(new Find());
+         E.add(find);
+         E.addSeparator();
+         selectall.addActionListener(new SelectAll());
+         E.add(selectall);
+         E.addSeparator();
+         textcolor.addActionListener(new TextColorAction());
+         E.add(textcolor);
+         backcolor.addActionListener(new BackColorAction());
+         E.add(backcolor);
+         mb.add(E);
+         //Create Font menu
+         JMenu font=new JMenu(" Font ");
+         font.setFont(new Font("Segoe UI",Font.PLAIN,12));
+         JMenuItem plain=new JMenuItem("Plain                               ");
+         JMenuItem bold=new JMenuItem("Bold");
+         JMenuItem italic=new JMenuItem("Italic");
+         JMenuItem plainbold=new JMenuItem("Plain+Bold");
+         JMenuItem plainitalic=new JMenuItem("Plain+Italic");
+         JMenuItem bolditalic=new JMenuItem("Bold+Italic");
+         JMenuItem fontsize=new JMenuItem("Font Size");
+         plain.addActionListener(new FontPlainAction());
+         bold.addActionListener(new FontBoldAction());
+         italic.addActionListener(new FontItalicAction());
+         plainbold.addActionListener(new FontPlainBoldAction());
+         plainitalic.addActionListener(new FontPlainItalicAction());
+         bolditalic.addActionListener(new FontBoldItalicAction());
+         fontsize.addActionListener(new FontSizeAction());
+         font.add(plain);
+         font.add(bold);
+         font.add(italic);
+         font.add(plainbold);
+         font.add(plainitalic);
+         font.add(bolditalic);
+         font.add(fontsize);
+         mb.add(font);
+         //Create Help Menu
+         JMenu help=new JMenu(" Help ");
+         help.setFont(new Font("Segoe UI",Font.PLAIN,12));
+         JMenuItem about=new JMenuItem("About              ");
+         about.addActionListener(new AboutAction());
+         help.add(about);
+         mb.add(help);
+         setJMenuBar(mb);
+         mylistener mylist = new mylistener();
+         addWindowListener(mylist);
+     }
+
+
+      //Class AboutAction
+     class AboutAction implements ActionListener
+     {
+		 public void actionPerformed(ActionEvent e)
+		 {
+	    JOptionPane.showMessageDialog(null, "Notepad in Java", "About Notepad",JOptionPane.INFORMATION_MESSAGE);
+	}
+  }
+
+
+     //Class Font Plain Action
+     class FontPlainAction implements ActionListener
+     {
+		public void actionPerformed(ActionEvent e)
+		{
+			      tx.setFont(new Font("Serif",Font.PLAIN,14));
+		}
+ }
+
+
+     //Class Font Bold Action
+     class FontBoldAction implements ActionListener
+      {
+ 		public void actionPerformed(ActionEvent e)
+ 		{
+ 			      tx.setFont(new Font("Serif",Font.BOLD,14));
+ 		}
+ }
+
+
+     //Class Font Italic Action
+     class FontItalicAction implements ActionListener
+      {
+ 		public void actionPerformed(ActionEvent e)
+ 		{
+ 			      tx.setFont(new Font("Serif",Font.ITALIC,14));
+ 		}
+ }
+
+
+     //Class Font Plain Bold Action
+     class FontPlainBoldAction implements ActionListener
+      {
+ 		public void actionPerformed(ActionEvent e)
+ 		{
+ 			      tx.setFont(new Font("Serif",Font.PLAIN+Font.BOLD,20));
+ 		}
+ }
+
+
+     //Class Font Plain Italic Action
+     class FontPlainItalicAction implements ActionListener
+      {
+ 		public void actionPerformed(ActionEvent e)
+ 		{
+ 			      tx.setFont(new Font("Serif",Font.PLAIN+Font.ITALIC,20));
+ 		}
+ }
+
+
+     //Class Font Bold Italic Action
+     class FontBoldItalicAction  implements ActionListener
+      {
+ 		public void actionPerformed(ActionEvent e)
+ 		{
+ 			      tx.setFont(new Font("Serif",Font.BOLD+Font.ITALIC,20));
+ 		}
+ }
+
+
+     //Class Font Size Action
+ class FontSizeAction implements ActionListener
+ {
+	 public void actionPerformed(ActionEvent e)
+	 {
+		 String x=JOptionPane.showInputDialog(null, "Enter Font Size :","Input Dialog",JOptionPane.OK_CANCEL_OPTION);
+         int i=Integer.parseInt(x);
+         tx.setFont(new Font("Serif",Font.PLAIN,i));
+	}
+}
+
+
+ //Class mylistener
+     class mylistener extends WindowAdapter
+         {
+         public void windowClosing (WindowEvent e)
+             {
+             System.exit(0);
+         }
+     }
+
+
+     //Class New
+     class New implements ActionListener
+         {
+         public void actionPerformed(ActionEvent e)
+             {
+             tx.setText("");
+              setTitle("Notepad in Java");
+         }
+     }
+
+
+     //Class Open
+     class Open implements ActionListener
+         {
+         public void actionPerformed(ActionEvent e)
+             {
+             FileDialog fd = new FileDialog(Notepad.this, "Select File",FileDialog.LOAD);
+             fd.show();
+             if (fd.getFile()!=null)
+                 {
+                 filename = fd.getDirectory() + fd.getFile();
+                 setTitle(filename);
+                 ReadFile();
+             }
+             tx.requestFocus();
+         }
+     }
+
+
+     //Class Save
+     class Save implements ActionListener
+         {
+         public void actionPerformed(ActionEvent e)
+             {
+             FileDialog fd = new FileDialog(Notepad.this,"Save File",FileDialog.SAVE);
+             fd.show();
+             if (fd.getFile()!=null)
+                 {
+                 filename = fd.getDirectory() + fd.getFile();
+                 setTitle(filename);
+                 try
+                     {
+                     DataOutputStream d = new DataOutputStream(new FileOutputStream(filename));
+                     String line = tx.getText();
+                     BufferedReader br = new BufferedReader(new StringReader(line));
+                     while((line = br.readLine())!=null)
+                         {
+                    	 d.writeBytes(line+"\n");
+                     }
+                 }
+                 catch(Exception ex)
+                     {
+                     System.out.println("File not found");
+                 }
+                 tx.requestFocus();
+             }
+         }
+     }
+
+
+     //Class Exit
+     class Exit implements ActionListener
+         {
+         public void actionPerformed(ActionEvent e)
+             {
+             System.exit(0);
+         }
+     }
+
+
+     //ReadFile() function
+     void ReadFile()
+         {
+         BufferedReader d;
+         StringBuffer sb = new StringBuffer();
+         try
+             {
+             d = new BufferedReader(new FileReader(filename));
+             String line;
+             while((line=d.readLine())!=null)
+             sb.append(line + "\n");
+             tx.setText(sb.toString());
+             d.close();
+         }
+         catch(FileNotFoundException fe)
+             {
+             System.out.println("File not Found");
+         }
+         catch(IOException ioe){}
+     }
+
+
+//Class Cut
+     class Cut implements ActionListener
+         {
+         public void actionPerformed(ActionEvent e)
+             {
+             String sel = tx.getSelectedText();
+             StringSelection ss = new StringSelection(sel);
+             clip.setContents(ss,ss);
+             tx.replaceSelection(sel);
+         }
+     }
+
+
+     //Class Copy
+     class Copy implements ActionListener
+         {
+         public void actionPerformed(ActionEvent e)
+             {
+             String sel = tx.getSelectedText();
+             StringSelection clipString = new StringSelection(sel);
+             clip.setContents(clipString,clipString);
+         }
+     }
+
+
+     //Class Paste
+     class Paste implements ActionListener
+         {
+         public void actionPerformed(ActionEvent e)
+             {
+             Transferable cliptran = clip.getContents(Notepad.this);
+             try
+                 {
+                 String sel = (String) cliptran.getTransferData(DataFlavor.stringFlavor);
+                 tx.replaceSelection(sel);
+             }
+             catch(Exception exc)
+                 {
+                 System.out.println("not string flavour");
+             }
+         }
+     }
+
+     // Class Undo action
+     public class UndoAction extends AbstractAction
+     {
+    	 UndoManager manager;
+       public UndoAction(UndoManager manager)
+       {
+         this.manager = manager;
+       }
+     public void actionPerformed(ActionEvent evt)
+     {
+         try
+         {
+           manager.undo();
+         }
+         catch (CannotUndoException e)
+         {
+           Toolkit.getDefaultToolkit().beep();
+         }
+       }
+     }
+
+
+     //Class Redo action
+     public class RedoAction extends AbstractAction
+     {
+    	 UndoManager manager;
+       public RedoAction(UndoManager manager)
+       {
+         this.manager = manager;
+       }
+       public void actionPerformed(ActionEvent evt)
+       {
+         try
+         {
+           manager.redo();
+         }
+         catch (CannotRedoException e)
+         {
+           Toolkit.getDefaultToolkit().beep();
+         }
+       }
+     }
+
+     //Class Find
+     class Find implements ActionListener
+     {
+           JLabel getwordlabel;
+         public void actionPerformed(ActionEvent evt)
+         {
+             finddiag=new JDialog(new JDialog(),true);
+             finddiag.setSize(300,100);
+             finddiag.setResizable(false);
+             finddiag.setTitle("Find.......");
+             finddiag.setLocation(300,200);
+             finddiag.setAlwaysOnTop(true);
+             finddiag.setLayout(new FlowLayout());
+             getwordlabel=new JLabel("Find What ?");
+             getwordlabel.setFont(new Font("Lucida",Font.PLAIN,14));
+             getfindword=new JTextField(13);
+             getfindword.setFont(new Font("Lucida",Font.PLAIN,12));
+             JButton finddone=new JButton("Find");
+             finddone.setFont(new Font("Lucida",Font.PLAIN,14));
+             finddone.addActionListener(new FindDoneAction());
+             JButton findclose=new JButton("Close");
+             findclose.setFont(new Font("Lucida",Font.PLAIN,14));
+             findclose.addActionListener(new FindCloseAction());
+             finddiag.add(getwordlabel);
+             finddiag.add(getfindword);
+             finddiag.add(finddone);
+             finddiag.add(findclose);
+             finddiag.setVisible(true);
+         }
+     }
+     class FindDoneAction implements ActionListener
+     {
+         public void actionPerformed(ActionEvent replacedoneEvt)
+         {
+             String getword=getfindword.getText();
+             int start=tx.getText().indexOf(getword);
+             int end=getword.length();
+              if(start>=0 && getword.length()>0)
+             {
+               tx.select(start,start+end);
+                      try
+              {
+             Highlighter highlighter = tx.getHighlighter();
+              highlighter.addHighlight(start, start+end, painter );
+              }
+              catch(Exception ex){}
+              }
+             }
+         }
+     class FindCloseAction implements ActionListener
+     {
+         public void actionPerformed(ActionEvent replacedoneEvt)
+         {
+             finddiag.setVisible(false);
+          }
+     }
+
+     class SelectAll implements ActionListener
+     {
+		public void actionPerformed(ActionEvent e)
+		{
+			      tx.selectAll();
+		}
+     }
+
+     //Class Text Color
+     class TextColorAction implements ActionListener
+     {
+    	 public void actionPerformed(ActionEvent e)
+    	 {
+    	       JDialog jc1=new JDialog(new JDialog(),true);
+    	       jc1.setSize(500,400);
+    	       jc1.setLocation(160,100);
+    	       jc1.setResizable(false);
+    	       jc1.setTitle("Select Color");
+    	       jc1.setLayout(new BorderLayout());
+    	       JButton done=new JButton("Done");
+    	       done.setBackground(Color.WHITE);
+    	       done.setToolTipText("Set Background Color to Menu Bar");
+    	       done.setFont(new Font("Constantia",Font.PLAIN+Font.BOLD,16));
+    	       jc1.add(chooser,BorderLayout.NORTH);
+    	       jc1.add(done,BorderLayout.SOUTH);
+    	       done.addActionListener(new TextColorDoneButtonAction());
+    	       jc1.setVisible(true);
+    	 }
+     }
+     class TextColorDoneButtonAction implements ActionListener
+     {
+         public void actionPerformed(ActionEvent e)
+         {
+             Color mbcolor=chooser.getColor();
+             tx.setForeground(mbcolor);
+         }
+     }
+
+     //Class Back Color
+     class BackColorAction implements ActionListener
+     {
+    	 public void actionPerformed(ActionEvent e)
+    	 {
+  	       JDialog jc1=new JDialog(new JDialog(),true);
+  	       jc1.setSize(500,400);
+  	       jc1.setLocation(160,100);
+  	       jc1.setResizable(false);
+  	       jc1.setTitle("Select Color");
+  	       jc1.setLayout(new BorderLayout());
+  	       JButton done=new JButton("Done");
+  	       done.setBackground(Color.WHITE);
+  	       done.setToolTipText("Set Background Color to Menu Bar");
+  	       done.setFont(new Font("Constantia",Font.PLAIN+Font.BOLD,16));
+  	       jc1.add(chooser,BorderLayout.NORTH);
+  	       jc1.add(done,BorderLayout.SOUTH);
+  	       done.addActionListener(new BackColorDoneButtonAction());
+  	       jc1.setVisible(true);
+    	 }
+     }
+     class BackColorDoneButtonAction implements ActionListener
+     {
+         public void actionPerformed(ActionEvent e)
+         {
+             Color mbcolor=chooser.getColor();
+             tx.setBackground(mbcolor);
+         }
+     }
+
+     //main method
+     public static void main(String args[])
+      {
+    	  try
+    	    {
+    	     UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+    	    }
+    	    catch (Exception e)
+    	    {
+    	      e.printStackTrace();
+    	    }
+         JFrame jf = new Notepad();
+         jf.setTitle("Notepad in Java");
+         jf.setExtendedState(6);
+         jf.setSize(800,600);
+         jf.setVisible(true);
+     }
+}
+

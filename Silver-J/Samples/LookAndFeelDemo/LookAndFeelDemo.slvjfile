@@ -1,0 +1,289 @@
+import java.awt.*;
+import java.awt.event.*;
+
+import javax.swing.*;
+import javax.swing.plaf.*;
+import javax.swing.plaf.metal.*;
+public class LookAndFeelDemo extends JFrame
+{
+	JPanel jp;
+	JButton javathemeButton,nimbusthemeButton,motifthemeButton,windowsthemeButton,windowsclassicthemeButton,metalthemeButton;
+	JButton javathemeRedButton,javathemeGreenButton,javathemeBlueButton;
+   public LookAndFeelDemo()
+   {
+	   Container cp=getContentPane();
+	   jp=new JPanel();
+
+	   javathemeButton=new JButton("                    Java                    ");
+	   javathemeButton.setFont(new Font("Sanes Serif",Font.PLAIN,16));
+	   javathemeButton.addActionListener(new JavaThemeButtonAction());
+	   jp.add(javathemeButton);
+
+	   nimbusthemeButton=new JButton("                   Nimbus                 ");
+	   nimbusthemeButton.setFont(new Font("Sanes Serif",Font.PLAIN,16));
+	   nimbusthemeButton.addActionListener(new NimbusThemeButtonAction());
+	   jp.add(nimbusthemeButton);
+
+	   motifthemeButton=new JButton("                     Motif                     ");
+	   motifthemeButton.setFont(new Font("Sanes Serif",Font.PLAIN,16));
+	   motifthemeButton.addActionListener(new MotifThemeButtonAction());
+	   jp.add(motifthemeButton);
+
+	   windowsthemeButton=new JButton("                 Windows                 ");
+	   windowsthemeButton.setFont(new Font("Sanes Serif",Font.PLAIN,16));
+	   windowsthemeButton.addActionListener(new WindowsThemeButtonAction());
+	   jp.add(windowsthemeButton);
+
+	   windowsclassicthemeButton=new JButton("          Windows Classic          ");
+	   windowsclassicthemeButton.setFont(new Font("Sanes Serif",Font.PLAIN,16));
+	   windowsclassicthemeButton.addActionListener(new WindowsClassicThemeButtonAction());
+	   jp.add(windowsclassicthemeButton);
+
+	   metalthemeButton=new JButton("                    Metal                    ");
+	   metalthemeButton.setFont(new Font("Sanes Serif",Font.PLAIN,16));
+	   metalthemeButton.addActionListener(new MetalThemeButtonAction());
+	   jp.add(metalthemeButton);
+
+	   javathemeRedButton=new JButton("          Java Red Theme          ");
+	   javathemeRedButton.setFont(new Font("Sanes Serif",Font.PLAIN,16));
+	   javathemeRedButton.addActionListener(new JavaRedThemeButtonAction());
+	   jp.add(javathemeRedButton);
+
+	   javathemeGreenButton=new JButton("         Java Green Theme         ");
+	   javathemeGreenButton.setFont(new Font("Sanes Serif",Font.PLAIN,16));
+	   javathemeGreenButton.addActionListener(new JavaGreenThemeButtonAction());
+	   jp.add(javathemeGreenButton);
+
+	   javathemeBlueButton=new JButton("          Java Blue Theme          ");
+	   javathemeBlueButton.setFont(new Font("Sanes Serif",Font.PLAIN,16));
+	   javathemeBlueButton.addActionListener(new JavaBlueThemeButtonAction());
+	   jp.add(javathemeBlueButton);
+
+	   cp.add(jp,BorderLayout.CENTER);
+   }
+
+   class JavaThemeButtonAction implements ActionListener
+   {
+	   public void actionPerformed(ActionEvent e)
+	   {
+		  JFrame jf=new TestFrame();
+		  jf.setTitle("Java Look and Feel");
+		  jf.setAlwaysOnTop(true);
+		  jf.setSize(500,500);
+		  jf.setVisible(true);
+	   }
+   }
+
+   class NimbusThemeButtonAction implements ActionListener
+   {
+	   public void actionPerformed(ActionEvent e)
+	   {
+	    	  try
+	    	    {
+	    	     UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+	    	    }
+	    	    catch (Exception ev)
+	    	    {
+	    	      ev.printStackTrace();
+	    	    }
+		  JFrame jf=new TestFrame();
+		  jf.setTitle("Nimbus Look and Feel");
+		  jf.setAlwaysOnTop(true);
+		  jf.setSize(500,500);
+		  jf.setVisible(true);
+	   }
+   }
+
+   class MotifThemeButtonAction implements ActionListener
+   {
+	   public void actionPerformed(ActionEvent e)
+	   {
+	    	  try
+	    	    {
+	    	     UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
+	    	    }
+	    	    catch (Exception ev)
+	    	    {
+	    	      ev.printStackTrace();
+	    	    }
+		  JFrame jf=new TestFrame();
+		  jf.setTitle("Motif Look and Feel");
+		  jf.setAlwaysOnTop(true);
+		  jf.setSize(500,500);
+		  jf.setVisible(true);
+	   }
+   }
+
+   class WindowsThemeButtonAction implements ActionListener
+   {
+	   public void actionPerformed(ActionEvent e)
+	   {
+	    	  try
+	    	    {
+	    	     UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+	    	    }
+	    	    catch (Exception ev)
+	    	    {
+	    	      ev.printStackTrace();
+	    	    }
+		  JFrame jf=new TestFrame();
+		  jf.setTitle("Windows Look and Feel");
+		  jf.setAlwaysOnTop(true);
+		  jf.setSize(500,500);
+		  jf.setVisible(true);
+	   }
+   }
+
+   class WindowsClassicThemeButtonAction implements ActionListener
+   {
+	   public void actionPerformed(ActionEvent e)
+	   {
+	    	  try
+	    	    {
+	    	     UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel");
+	    	    }
+	    	    catch (Exception ev)
+	    	    {
+	    	      ev.printStackTrace();
+	    	    }
+		  JFrame jf=new TestFrame();
+		  jf.setTitle("Windows Classic Look and Feel");
+		  jf.setAlwaysOnTop(true);
+		  jf.setSize(500,500);
+		  jf.setVisible(true);
+	   }
+   }
+
+   class MetalThemeButtonAction implements ActionListener
+   {
+	   public void actionPerformed(ActionEvent e)
+	   {
+	    	  try
+	    	    {
+	    	     UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+	    	    }
+	    	    catch (Exception ev)
+	    	    {
+	    	      ev.printStackTrace();
+	    	    }
+		  JFrame jf=new TestFrame();
+		  jf.setTitle("Metal Look and Feel");
+		  jf.setAlwaysOnTop(true);
+		  jf.setSize(500,500);
+		  jf.setVisible(true);
+	   }
+   }
+
+
+   class JavaRedThemeButtonAction extends JavaRedTheme implements ActionListener
+   {
+	   public void actionPerformed(ActionEvent e)
+	   {
+		   //set Red theme to main frame
+		      MetalLookAndFeel.setCurrentTheme(z);
+		         try
+		            {
+		                UIManager.setLookAndFeel(new MetalLookAndFeel ());
+		            }
+		            catch (Exception ev)
+		            {
+		                ev.printStackTrace ();
+		            }
+
+		   JFrame.setDefaultLookAndFeelDecorated(true);
+		  JFrame jf=new TestFrame();
+		  jf.setTitle("Java Red Theme Look and Feel");
+		  jf.setAlwaysOnTop(true);
+		  jf.setSize(500,500);
+		  new JavaRedTheme();
+	      MetalLookAndFeel.setCurrentTheme(z);
+	         try
+	            {
+	                UIManager.setLookAndFeel(new MetalLookAndFeel ());
+	            }
+	            catch (Exception ev)
+	            {
+	                ev.printStackTrace ();
+	            }
+		  jf.setVisible(true);
+	   }
+   }
+
+   class JavaBlueThemeButtonAction extends JavaBlueTheme implements ActionListener
+   {
+	   public void actionPerformed(ActionEvent e)
+	   {
+		   //set Blue theme to main frame
+		      MetalLookAndFeel.setCurrentTheme(z);
+		         try
+		            {
+		                UIManager.setLookAndFeel(new MetalLookAndFeel ());
+		            }
+		            catch (Exception ev)
+		            {
+		                ev.printStackTrace ();
+		            }
+
+		   JFrame.setDefaultLookAndFeelDecorated(true);
+		  JFrame jf=new TestFrame();
+		  jf.setTitle("Java Blue Theme Look and Feel");
+		  jf.setAlwaysOnTop(true);
+		  jf.setSize(500,500);
+		  new JavaRedTheme();
+	      MetalLookAndFeel.setCurrentTheme(z);
+	         try
+	            {
+	                UIManager.setLookAndFeel(new MetalLookAndFeel ());
+	            }
+	            catch (Exception ev)
+	            {
+	                ev.printStackTrace ();
+	            }
+		  jf.setVisible(true);
+	   }
+   }
+
+   class JavaGreenThemeButtonAction extends JavaGreenTheme implements ActionListener
+   {
+	   public void actionPerformed(ActionEvent e)
+	   {
+		   //set Green them to main Frame
+		      MetalLookAndFeel.setCurrentTheme(z);
+		         try
+		            {
+		                UIManager.setLookAndFeel(new MetalLookAndFeel ());
+		            }
+		            catch (Exception ev)
+		            {
+		                ev.printStackTrace ();
+		            }
+
+		   JFrame.setDefaultLookAndFeelDecorated(true);
+		  JFrame jf=new TestFrame();
+		  jf.setTitle("Java Green Theme Look and Feel");
+		  jf.setAlwaysOnTop(true);
+		  jf.setSize(500,500);
+		  new JavaRedTheme();
+	      MetalLookAndFeel.setCurrentTheme(z);
+	         try
+	            {
+	                UIManager.setLookAndFeel(new MetalLookAndFeel ());
+	            }
+	            catch (Exception ev)
+	            {
+	                ev.printStackTrace ();
+	            }
+		  jf.setVisible(true);
+	   }
+   }
+
+   public static void main(String[] args)
+   {
+	   JFrame jf=new LookAndFeelDemo();
+	   jf.setTitle("Look and Feel Demo");
+	   jf.setResizable(false);
+	   jf.setSize(350,400);
+	   jf.setLocation(250,100);
+	   jf.setVisible(true);
+   }
+}

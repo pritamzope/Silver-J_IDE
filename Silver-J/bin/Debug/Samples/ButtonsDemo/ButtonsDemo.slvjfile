@@ -1,0 +1,531 @@
+/*
+
+   ButtonsDemo.java
+   
+   Silver-J demo java project
+
+*/
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
+
+public class ButtonsDemo extends JFrame
+{
+	//ButtonsDemo constructor
+	public ButtonsDemo()
+	{
+		setTitle("Buttons Demo");
+		FontsPanel fontspanel=new FontsPanel();
+		Container cp=getContentPane();
+		cp.add(fontspanel,BorderLayout.CENTER);
+	}
+
+	//FontsPanel class
+	class FontsPanel extends JPanel
+	{
+	//Buttons,RadioButtons,Panels declaration
+	private JButton Black,Blue,Cyan,DarkGray,Gray,Green,LightGray,Magenta,Orange,Pink,Red,Yellow,White;
+	private JPanel jp;
+	private JTextField getInfo;
+	private Button doneInfo;
+	private JPanel buttonpanel;
+	private ButtonGroup group;
+	private JLabel label;
+	private JRadioButton Button10;
+	private JRadioButton Button20;
+	private JRadioButton Button30;
+	private JRadioButton Button40;
+	private JRadioButton Button50;
+	private JRadioButton Button60;
+	private JRadioButton Button70;
+	private JRadioButton Button80;
+	private JRadioButton Button90;
+	private JRadioButton ButtonItalic;
+	private JRadioButton ButtonBold;
+	private JRadioButton ButtonItalicBold;
+	private JRadioButton ButtonPlain;
+	private JRadioButton ButtonBoldPlain;
+	private JRadioButton ButtonItalicPlain;
+	private JRadioButton ButtonItalicBoldPlain;
+	private JPanel textColor;
+	private JButton textBlack,textBlue,textCyan,textDarkGray,textGray,textGreen,textLightGray,textMagenta,textOrange,textPink,textRed,textYellow,textWhite;
+
+	//FontsPanel constructor
+	public FontsPanel()
+	{
+	setLayout(new BorderLayout());
+
+	jp=new JPanel();
+
+	//create Text Field to change text of label
+	BackColorAction bh=new BackColorAction();
+	getInfo=new JTextField(20);
+	getInfo.setLayout(new BorderLayout());
+	getInfo.setFont(new Font("Serif",Font.PLAIN,16));
+	jp.add(getInfo);
+
+	//create Done button
+	doneInfo=new java.awt.Button("Done");
+	doneInfo.setBackground(new Color(200,200,200));
+	doneInfo.setForeground(Color.BLACK);
+	doneInfo.setFont(new Font("SansSerif",Font.ITALIC,20));
+	jp.add(doneInfo);
+	doneInfo.addActionListener(bh);
+
+	/*Create Buttons to change Back Color and add Action listener to it of class BackColorAction
+	Also add Tool tip to it
+	adding all buttons to Panel jp and adding jp to NORTH of Container*/
+	Black=new JButton("Black");
+	Black.setBackground(Color.black);
+	Black.setToolTipText("Set Black Background color");
+	jp.add(Black);
+	Black.addActionListener(bh);
+	Blue=new JButton("Blue");
+	Blue.setBackground(Color.blue);
+	Blue.setToolTipText("Set Blue Background color");
+	jp.add(Blue);
+	Blue.addActionListener(bh);
+	Cyan=new JButton("Cyan");
+	Cyan.setBackground(Color.cyan);
+	Cyan.setToolTipText("Set Cyan Background color");
+	jp.add(Cyan);
+	Cyan.addActionListener(bh);
+	DarkGray=new JButton("DarkGray");
+	DarkGray.setBackground(Color.darkGray);
+	DarkGray.setToolTipText("Set DarkGray Background color");
+	jp.add(DarkGray);
+	DarkGray.addActionListener(bh);
+	Gray=new JButton("Gray");
+	Gray.setBackground(Color.gray);
+	Gray.setToolTipText("Set Gray Background color");
+	jp.add(Gray);
+	Gray.addActionListener(bh);
+	Green=new JButton("Green");
+	Green.setBackground(Color.green);
+	Green.setToolTipText("Set Green Background color");
+	jp.add(Green);
+	Green.addActionListener(bh);
+	LightGray=new JButton("LightGray");
+	LightGray.setBackground(Color.lightGray);
+	LightGray.setToolTipText("Set LightGray Background color");
+	jp.add(LightGray);
+	LightGray.addActionListener(bh);
+	Magenta=new JButton("Magenta");
+	Magenta.setBackground(Color.magenta);
+	Magenta.setToolTipText("Set Magenta Background color");
+	jp.add(Magenta);
+	Magenta.addActionListener(bh);
+	Orange=new JButton("Orange");
+	Orange.setBackground(Color.orange);
+	Orange.setToolTipText("Set Orange Background color");
+	jp.add(Orange);
+	Orange.addActionListener(bh);
+	Pink=new JButton("Pink");
+	Pink.setBackground(Color.pink);
+	Pink.setToolTipText("Set Pink Background color");
+	jp.add(Pink);
+	Pink.addActionListener(bh);
+	Red=new JButton("Red");
+	Red.setBackground(Color.red);
+	Red.setToolTipText("Set Red Background color");
+	jp.add(Red);
+	Red.addActionListener(bh);
+	Yellow=new JButton("Yellow");
+	Yellow.setBackground(Color.yellow);
+	Yellow.setToolTipText("Set Yellow Background color");
+	jp.add(Yellow);
+	Yellow.addActionListener(bh);
+	White=new JButton("White");
+	White.setBackground(Color.white);
+	White.setToolTipText("Set White Background color");
+	jp.add(White);
+	White.addActionListener(bh);
+	add(jp,BorderLayout.NORTH);
+
+	//Create label and add it to CENTER
+	setBackground(new Color(255,220,30));
+	label=new JLabel("Hello-This is Java Programming Language !",JLabel.CENTER);
+	label.setFont(new Font("Serif",Font.PLAIN,20));
+	label.setForeground(Color.WHITE);
+	add(label,BorderLayout.CENTER);
+
+	//create buttonpanel
+	buttonpanel=new JPanel();
+	buttonpanel.setBackground(Color.blue);
+
+	/*Create Radio Buttons to change size of label and add Action listener to it of class RadioAction
+	Also add Tool tip to it
+	adding all buttons to Panel buttonpanel and adding buttonpanel to SOUTH of Container*/
+	group=new ButtonGroup();
+	RadioAction ra=new RadioAction();
+	Button10=addRadioButton("Size-10%",false);
+	Button10.addActionListener(ra);
+	Button20=addRadioButton("Size-20%",false);
+	Button20.addActionListener(ra);
+	Button30=addRadioButton("Size-30%",false);
+	Button30.addActionListener(ra);
+	Button40=addRadioButton("Size-40%",true);
+	Button40.addActionListener(ra);
+	Button50=addRadioButton("Size-50%",false);
+	Button50.addActionListener(ra);
+	Button60=addRadioButton("Size-60%",false);
+	Button60.addActionListener(ra);
+	Button70=addRadioButton("Size-70%",false);
+	Button70.addActionListener(ra);
+	Button80=addRadioButton("Size-80%",false);
+	Button80.addActionListener(ra);
+	Button90=addRadioButton("Size-90%",false);
+	Button90.addActionListener(ra);
+	ButtonItalic=addRadioButton("Italic",false);
+	ButtonItalic.addActionListener(ra);
+	ButtonBold=addRadioButton("Bold",false);
+	ButtonBold.addActionListener(ra);
+	ButtonItalicBold=addRadioButton("Italic+Bold",false);
+	ButtonItalicBold.addActionListener(ra);
+	ButtonPlain=addRadioButton("Plain",true);
+	ButtonPlain.addActionListener(ra);
+	ButtonBoldPlain=addRadioButton("Plain+Bold",false);
+	ButtonBoldPlain.addActionListener(ra);
+	ButtonItalicPlain=addRadioButton("Italic+Plain",false);
+	ButtonItalicPlain.addActionListener(ra);
+	ButtonItalicBoldPlain=addRadioButton("Italic+Bold+Plain",false);
+	ButtonItalicBoldPlain.addActionListener(ra);
+	add(buttonpanel,BorderLayout.SOUTH);
+
+	/*Create Buttons to change Fore Color and add Action listener to it of class TextColorAction
+	Also add Tool tip to it
+	adding all buttons to Panel textColor and adding textColor to WEST of Container*/
+	TextColorAction tc=new TextColorAction();
+	textColor=new JPanel();
+	textColor.setLayout(new GridLayout(13,1));
+	textColor.setBackground(Color.white);
+	textBlack=new JButton("Black");
+	textBlack.setToolTipText("Set Black color to Label");
+	textBlack.addActionListener(tc);
+	textColor.add(textBlack,BorderLayout.WEST);
+	textBlue=new JButton("Blue");
+	textBlue.setToolTipText("Set Blue color to Label");
+	textBlue.addActionListener(tc);
+	textColor.add(textBlue,BorderLayout.WEST);
+	textCyan=new JButton("Cyan");
+	textCyan.setToolTipText("Set Cyan color to Label");
+	textCyan.addActionListener(tc);
+	textColor.add(textCyan,BorderLayout.WEST);
+	textDarkGray=new JButton("DarkGray");
+	textDarkGray.setToolTipText("Set DarkGray color to Label");
+	textDarkGray.addActionListener(tc);
+	textColor.add(textDarkGray,BorderLayout.WEST);
+	textGray=new JButton("Gray");
+	textGray.setToolTipText("Set Gray color to Label");
+	textGray.addActionListener(tc);
+	textColor.add(textGray,BorderLayout.WEST);
+	textGreen=new JButton("Green");
+	textGreen.setToolTipText("Set Green color to Label");
+	textGreen.addActionListener(tc);
+	textColor.add(textGreen,BorderLayout.WEST);
+	textLightGray=new JButton("LightGray");
+	textLightGray.setToolTipText("Set LightGray color to Label");
+	textLightGray.addActionListener(tc);
+	textColor.add(textLightGray,BorderLayout.WEST);
+	textMagenta=new JButton("Magenta");
+	textMagenta.setToolTipText("Set Magenta color toLabel");
+	textMagenta.addActionListener(tc);
+	textColor.add(textMagenta,BorderLayout.WEST);
+	textOrange=new JButton("Orange");
+	textOrange.setToolTipText("Set Orange color to Label");
+	textOrange.addActionListener(tc);
+	textColor.add(textOrange,BorderLayout.WEST);
+	textPink=new JButton("Pink");
+	textPink.setToolTipText("Set Pink color to Label");
+	textPink.addActionListener(tc);
+	textColor.add(textPink,BorderLayout.WEST);
+	textRed=new JButton("Red");
+	textRed.setToolTipText("Set Red color to Label");
+	textRed.addActionListener(tc);
+	textColor.add(textRed,BorderLayout.WEST);
+	textYellow=new JButton("Yellow");
+	textYellow.setToolTipText("Set Yellow color to Label");
+	textYellow.addActionListener(tc);
+	textColor.add(textYellow,BorderLayout.WEST);
+	textWhite=new JButton("White");
+	textWhite.setToolTipText("Set White color to Label");
+	textWhite.addActionListener(tc);
+	textColor.add(textWhite,BorderLayout.WEST);
+	add(textColor,BorderLayout.WEST);
+	}
+
+	//class of TextColorAction
+class TextColorAction implements ActionListener
+{
+	public void actionPerformed(ActionEvent evtxt)
+	{
+	Object txt=evtxt.getSource();
+	if(txt==textBlack)
+	{
+	label.setForeground(Color.BLACK);
+	}
+	else if(txt==textBlue)
+	{
+	label.setForeground(Color.BLUE);
+	}
+	else if(txt==textCyan)
+	{
+	label.setForeground(Color.CYAN);
+	}
+	else if(txt==textDarkGray)
+	{
+	label.setForeground(Color.DARK_GRAY);
+	}
+	else if(txt==textGray)
+	{
+	label.setForeground(Color.GRAY);
+	}
+	else if(txt==textGreen)
+	{
+	label.setForeground(Color.GREEN);
+	}
+	else if(txt==textLightGray)
+	{
+	label.setForeground(Color.LIGHT_GRAY);
+	}
+	else if(txt==textMagenta)
+	{
+		label.setForeground(Color.MAGENTA);
+		}
+		else if(txt==textOrange)
+		{
+		label.setForeground(Color.ORANGE);
+		}
+		else if(txt==textPink)
+		{
+		label.setForeground(Color.PINK);
+		}
+		else if(txt==textRed)
+		{
+		label.setForeground(Color.RED);
+		}
+		else if(txt==textYellow)
+		{
+		label.setForeground(Color.YELLOW);
+		}
+		else
+		{
+		label.setForeground(Color.WHITE);
+		}
+	}
+}
+
+//class BackColorAction
+class BackColorAction implements ActionListener
+{
+	public void actionPerformed(ActionEvent ev)
+		{
+		Object source=ev.getSource();
+		if(source==doneInfo)
+		{
+		String getInfoFromUser;
+		getInfoFromUser=getInfo.getText();
+		label.setText(""+getInfoFromUser);
+		}
+		else if(source==Black)
+		{
+		setBackground(Color.BLACK);
+		jp.setBackground(Color.black);
+		}
+		else if(source==Blue)
+		{
+		jp.setBackground(Color.blue);
+		setBackground(Color.blue);
+		}
+		else if(source==Cyan)
+		{
+		jp.setBackground(Color.cyan);
+		setBackground(Color.cyan);
+		}
+		else if(source==DarkGray)
+		{
+		jp.setBackground(Color.darkGray);
+		setBackground(Color.darkGray);
+		}
+		else if(source==Gray)
+		{
+		jp.setBackground(Color.gray);
+		setBackground(Color.gray);
+		}
+		else if(source==Green)
+		{
+		jp.setBackground(Color.green);
+		setBackground(Color.green);
+		}
+		else if(source==LightGray)
+		{
+		jp.setBackground(Color.lightGray);
+		setBackground(Color.lightGray);
+		}
+		else if(source==Magenta)
+		{
+		jp.setBackground(Color.magenta);
+		setBackground(Color.magenta);
+		}
+		else if(source==Orange)
+		{
+		jp.setBackground(Color.orange);
+		setBackground(Color.orange);
+		}
+		else if(source==Pink)
+		{
+			jp.setBackground(Color.pink);
+			setBackground(Color.pink);
+			}
+			else if(source==Red)
+			{
+			jp.setBackground(Color.red);
+			setBackground(Color.red);
+			}
+			else if(source==Yellow)
+			{
+			jp.setBackground(Color.yellow);
+			setBackground(Color.yellow);
+			}
+			else if(source==White)
+			{
+			jp.setBackground(Color.white);
+			setBackground(Color.white);
+			}
+		}
+	}
+
+//class RadioAction
+class RadioAction implements ActionListener
+	{
+			public void actionPerformed(ActionEvent evt)
+			{
+			Object source=evt.getSource();
+			if(source==Button10)
+			{
+			label.setFont(new Font("Serif",Font.PLAIN,10));
+			buttonpanel.setBackground(Color.blue);
+			}
+			else if(source==Button20)
+			{
+			label.setFont(new
+			Font("Serif",Font.PLAIN,20));
+			buttonpanel.setBackground(Color.yellow);
+			}
+			else if(source==Button30)
+			{
+			label.setFont(new
+			Font("Serif",Font.PLAIN,30));
+			buttonpanel.setBackground(Color.cyan);
+			}
+			else if(source==Button40)
+			{
+			label.setFont(new Font("Serif",Font.PLAIN,40));
+			buttonpanel.setBackground(Color.magenta);
+			}
+			else if(source==Button50)
+			{
+			label.setFont(new
+			Font("Serif",Font.PLAIN,50));
+			buttonpanel.setBackground(Color.gray);
+			}
+			else if(source==Button60)
+			{
+			label.setFont(new
+			Font("Serif",Font.PLAIN,60));
+			buttonpanel.setBackground(Color.darkGray);
+			}
+			else if(source==Button70)
+			{
+			label.setFont(new
+			Font("Serif",Font.PLAIN,70));
+			buttonpanel.setBackground(Color.lightGray);
+			}
+			else if(source==Button80)
+			{
+			label.setFont(new
+			Font("Serif",Font.PLAIN,80));
+			buttonpanel.setBackground(Color.orange);
+			}
+			else if(source==Button90)
+			{
+			label.setFont(new
+			Font("Serif",Font.PLAIN,90));
+			buttonpanel.setBackground(Color.red);
+			}
+			else if(source==ButtonItalic)
+			{
+			label.setFont(new
+			Font("Serif",Font.ITALIC,66));
+			buttonpanel.setBackground(Color.white);
+			}
+			else if(source==ButtonBold)
+			{
+			label.setFont(new
+			Font("Serif",Font.BOLD,66));
+			buttonpanel.setBackground(Color.green);
+			}
+			else if(source==ButtonItalicBold)
+			{
+			label.setFont(new
+			Font("Serif",Font.ITALIC+Font.BOLD,66));
+			buttonpanel.setBackground(Color.blue);
+			}
+			else if(source==ButtonPlain)
+			{
+			label.setFont(new
+			Font("Serif",Font.PLAIN,66));
+			buttonpanel.setBackground(Color.black);
+			}
+			else if(source==ButtonBoldPlain)
+			{
+			label.setFont(new
+			Font("Serif",Font.BOLD+Font.PLAIN,66));
+			buttonpanel.setBackground(new
+			Color(100,0,155));
+			}
+			else if(source==ButtonItalicPlain)
+			{
+			label.setFont(new
+			Font("Serif",Font.ITALIC+Font.PLAIN,66));
+			buttonpanel.setBackground(Color.magenta);
+			}
+			else if(source==ButtonItalicBoldPlain)
+			{
+			label.setFont(new
+			Font("Serif",Font.ITALIC+Font.BOLD+Font.PLAIN,66));
+			buttonpanel.setBackground(Color.red);
+			}
+	 }
+	}
+
+//function addRadioButton to create group of radio buttons
+	public JRadioButton addRadioButton(String name,boolean state)
+	{
+					JRadioButton button=new JRadioButton(name,state);
+					group.add(button);
+					buttonpanel.add(button);
+					//button.addActionListener(RadioAction());
+					return(button);
+			}
+		};
+
+		//main method
+		public static void main(String[] args)
+		{
+			  try
+			    {
+			     UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel");
+			    }
+			    catch (Exception e)
+			    {
+			      e.printStackTrace();
+			    }
+			JFrame jf=new ButtonsDemo();
+			jf.setExtendedState(6);
+			jf.setSize(1000,600);
+			jf.setVisible(true);
+		}
+}

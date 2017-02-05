@@ -1,0 +1,11 @@
+<html>
+  <head></head>
+  <title>projectname</title>
+  <body>
+     <h1>projectname</h1>
+     <hr>
+	 <param name=""  value=""/>
+     <applet code="mainclassname" width="500" height="500">
+     </applet>
+  </body>
+</html> 

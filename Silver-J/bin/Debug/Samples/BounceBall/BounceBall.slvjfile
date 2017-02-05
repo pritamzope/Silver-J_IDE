@@ -1,0 +1,382 @@
+/*
+
+   BounceBall.java
+
+  Silver-J demo java project
+
+*/
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+final public class BounceBall
+{
+JFrame frame;
+DrawPanel drawPanel;
+private int oneX = 7;
+private int oneY = 7;
+boolean up = false;
+boolean down = true;
+boolean left = false;
+boolean right = true;
+public Color ball_color1=Color.red;
+public Color ball_color2=Color.yellow;
+public Color backcolor=Color.black;
+
+//main method
+public static void main(String[] args)
+{
+  new BounceBall().go();
+}
+
+//go function
+private void go()
+{
+frame = new JFrame("BounceBall");
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+drawPanel = new DrawPanel();
+frame.getContentPane().add(BorderLayout.CENTER, drawPanel);
+//create menu bar
+JMenuBar mb=new JMenuBar();
+
+//menu items of back color
+JMenu backcolormenu=new JMenu("Back Color");
+JMenuItem backcolor_black=new JMenuItem("Black");
+JMenuItem backcolor_white=new JMenuItem("White");
+JMenuItem backcolor_red=new JMenuItem("Red");
+JMenuItem backcolor_green=new JMenuItem("Green");
+JMenuItem backcolor_blue=new JMenuItem("Blue");
+JMenuItem backcolor_cyan=new JMenuItem("Cyan");
+JMenuItem backcolor_magenta=new JMenuItem("Magenta");
+JMenuItem backcolor_gray=new JMenuItem("Gray");
+JMenuItem backcolor_yellow=new JMenuItem("Yellow");
+
+BackColorEvent bca=new BackColorEvent();
+backcolor_black.addActionListener(bca);
+backcolor_white.addActionListener(bca);
+backcolor_red.addActionListener(bca);
+backcolor_green.addActionListener(bca);
+backcolor_blue.addActionListener(bca);
+backcolor_cyan.addActionListener(bca);
+backcolor_magenta.addActionListener(bca);
+backcolor_gray.addActionListener(bca);
+backcolor_yellow.addActionListener(bca);
+
+backcolormenu.add(backcolor_black);
+backcolormenu.add(backcolor_white);
+backcolormenu.add(backcolor_red);
+backcolormenu.add(backcolor_green);
+backcolormenu.add(backcolor_blue);
+backcolormenu.add(backcolor_cyan);
+backcolormenu.add(backcolor_magenta);
+backcolormenu.add(backcolor_gray);
+backcolormenu.add(backcolor_yellow);
+mb.add(backcolormenu);
+
+//create menu items of ball color 1
+JMenu ballcolor1menu=new JMenu("Ball Color 1");
+JMenuItem ballcolor1_black=new JMenuItem("Black");
+JMenuItem ballcolor1_white=new JMenuItem("White");
+JMenuItem ballcolor1_red=new JMenuItem("Red");
+JMenuItem ballcolor1_green=new JMenuItem("Green");
+JMenuItem ballcolor1_blue=new JMenuItem("Blue");
+JMenuItem ballcolor1_cyan=new JMenuItem("Cyan");
+JMenuItem ballcolor1_magenta=new JMenuItem("Magenta");
+JMenuItem ballcolor1_gray=new JMenuItem("Gray");
+JMenuItem ballcolor1_yellow=new JMenuItem("Yellow");
+
+BallColor1Event ballclr1e=new BallColor1Event();
+ballcolor1_black.addActionListener(ballclr1e);
+ballcolor1_white.addActionListener(ballclr1e);
+ballcolor1_red.addActionListener(ballclr1e);
+ballcolor1_green.addActionListener(ballclr1e);
+ballcolor1_blue.addActionListener(ballclr1e);
+ballcolor1_cyan.addActionListener(ballclr1e);
+ballcolor1_magenta.addActionListener(ballclr1e);
+ballcolor1_gray.addActionListener(ballclr1e);
+ballcolor1_yellow.addActionListener(ballclr1e);
+
+ballcolor1menu.add(ballcolor1_black);
+ballcolor1menu.add(ballcolor1_white);
+ballcolor1menu.add(ballcolor1_red);
+ballcolor1menu.add(ballcolor1_green);
+ballcolor1menu.add(ballcolor1_blue);
+ballcolor1menu.add(ballcolor1_cyan);
+ballcolor1menu.add(ballcolor1_magenta);
+ballcolor1menu.add(ballcolor1_gray);
+ballcolor1menu.add(ballcolor1_yellow);
+mb.add(ballcolor1menu);
+
+//create menu items of ball color 2
+JMenu ballcolor2menu=new JMenu("Ball Color 2");
+JMenuItem ballcolor2_black=new JMenuItem("Black");
+JMenuItem ballcolor2_white=new JMenuItem("White");
+JMenuItem ballcolor2_red=new JMenuItem("Red");
+JMenuItem ballcolor2_green=new JMenuItem("Green");
+JMenuItem ballcolor2_blue=new JMenuItem("Blue");
+JMenuItem ballcolor2_cyan=new JMenuItem("Cyan");
+JMenuItem ballcolor2_magenta=new JMenuItem("Magenta");
+JMenuItem ballcolor2_gray=new JMenuItem("Gray");
+JMenuItem ballcolor2_yellow=new JMenuItem("Yellow");
+
+BallColor2Event ballclr2e=new BallColor2Event();
+ballcolor2_black.addActionListener(ballclr2e);
+ballcolor2_white.addActionListener(ballclr2e);
+ballcolor2_red.addActionListener(ballclr2e);
+ballcolor2_green.addActionListener(ballclr2e);
+ballcolor2_blue.addActionListener(ballclr2e);
+ballcolor2_cyan.addActionListener(ballclr2e);
+ballcolor2_magenta.addActionListener(ballclr2e);
+ballcolor2_gray.addActionListener(ballclr2e);
+ballcolor2_yellow.addActionListener(ballclr2e);
+
+ballcolor2menu.add(ballcolor2_black);
+ballcolor2menu.add(ballcolor2_white);
+ballcolor2menu.add(ballcolor2_red);
+ballcolor2menu.add(ballcolor2_green);
+ballcolor2menu.add(ballcolor2_blue);
+ballcolor2menu.add(ballcolor2_cyan);
+ballcolor2menu.add(ballcolor2_magenta);
+ballcolor2menu.add(ballcolor2_gray);
+ballcolor2menu.add(ballcolor2_yellow);
+mb.add(ballcolor2menu);
+
+frame.setJMenuBar(mb);
+
+frame.setVisible(true);
+frame.setResizable(false);
+frame.setSize(640, 540);
+frame.setLocation(375, 55);
+moveIt();
+}
+
+//Back Color Event
+class BackColorEvent implements ActionListener
+{
+	public void actionPerformed(ActionEvent e)
+	{
+		if(e.getSource() instanceof JMenuItem)
+		{
+			String item=e.getActionCommand();
+
+			if(item.equals("Black"))
+			{
+				backcolor=Color.black;
+				frame.repaint();
+			}
+			else if(item.equals("White"))
+			{
+				backcolor=Color.white;
+				frame.repaint();
+			}
+			else if(item.equals("Red"))
+			{
+				backcolor=Color.red;
+				frame.repaint();
+			}
+			else if(item.equals("Green"))
+			{
+				backcolor=Color.green;
+				frame.repaint();
+			}
+			else if(item.equals("Blue"))
+			{
+				backcolor=Color.blue;
+				frame.repaint();
+			}
+			else if(item.equals("Cyan"))
+			{
+				backcolor=Color.cyan;
+				frame.repaint();
+			}
+			else if(item.equals("Magenta"))
+			{
+				backcolor=Color.magenta;
+				frame.repaint();
+			}
+			else if(item.equals("Gray"))
+			{
+				backcolor=Color.gray;
+				frame.repaint();
+			}
+			else if(item.equals("Yellow"))
+			{
+				backcolor=Color.yellow;
+				frame.repaint();
+			}
+		}
+	}
+}
+
+//Ball Color 1 Event
+class BallColor1Event implements ActionListener
+{
+	public void actionPerformed(ActionEvent e)
+	{
+		if(e.getSource() instanceof JMenuItem)
+		{
+			String item=e.getActionCommand();
+
+			if(item.equals("Black"))
+			{
+				ball_color2=Color.black;
+				frame.repaint();
+			}
+			else if(item.equals("White"))
+			{
+				ball_color2=Color.white;
+				frame.repaint();
+			}
+			else if(item.equals("Red"))
+			{
+				ball_color2=Color.red;
+				frame.repaint();
+			}
+			else if(item.equals("Green"))
+			{
+				ball_color2=Color.green;
+				frame.repaint();
+			}
+			else if(item.equals("Blue"))
+			{
+				ball_color2=Color.blue;
+				frame.repaint();
+			}
+			else if(item.equals("Cyan"))
+			{
+				ball_color2=Color.cyan;
+				frame.repaint();
+			}
+			else if(item.equals("Magenta"))
+			{
+				ball_color2=Color.magenta;
+				frame.repaint();
+			}
+			else if(item.equals("Gray"))
+			{
+				ball_color2=Color.gray;
+				frame.repaint();
+			}
+			else if(item.equals("Yellow"))
+			{
+				ball_color2=Color.yellow;
+				frame.repaint();
+			}
+		}
+	}
+}
+
+//Ball Color 2 Event
+class BallColor2Event implements ActionListener
+{
+	public void actionPerformed(ActionEvent e)
+	{
+		if(e.getSource() instanceof JMenuItem)
+		{
+			String item=e.getActionCommand();
+
+			if(item.equals("Black"))
+			{
+				ball_color1=Color.black;
+				frame.repaint();
+			}
+			else if(item.equals("White"))
+			{
+				ball_color1=Color.white;
+				frame.repaint();
+			}
+			else if(item.equals("Red"))
+			{
+				ball_color1=Color.red;
+				frame.repaint();
+			}
+			else if(item.equals("Green"))
+			{
+				ball_color1=Color.green;
+				frame.repaint();
+			}
+			else if(item.equals("Blue"))
+			{
+				ball_color1=Color.blue;
+				frame.repaint();
+			}
+			else if(item.equals("Cyan"))
+			{
+				ball_color1=Color.cyan;
+				frame.repaint();
+			}
+			else if(item.equals("Magenta"))
+			{
+				ball_color1=Color.magenta;
+				frame.repaint();
+			}
+			else if(item.equals("Gray"))
+			{
+				ball_color1=Color.gray;
+				frame.repaint();
+			}
+			else if(item.equals("Yellow"))
+			{
+				ball_color1=Color.yellow;
+				frame.repaint();
+			}
+		}
+	}
+}
+
+//class DrawPanel
+class DrawPanel extends JPanel
+{
+public void paintComponent(Graphics g)
+{
+	Graphics2D g2=(Graphics2D)g;
+	g2.setColor(backcolor);
+	g2.fillRect(0, 0, 640, 540);
+	g2.setPaint(new GradientPaint(0,0,ball_color1,30,20,ball_color2,true));
+	g2.fillOval(oneX, oneY, 50, 50);
+	}
+}
+
+//moveIt function
+private void moveIt()
+{
+ while(true)
+	{
+	if(oneX >= 583){
+	right = false;
+	left = true;
+	}
+	if(oneX <= 7){
+	right = true;
+	left = false;
+	}
+	if(oneY >= 470){
+	up = true;
+	down = false;
+	}
+	if(oneY <= 7){
+	up = false;
+	down = true;
+	}
+	if(up){
+	oneY--;
+	}
+	if(down){
+	oneY++;
+	}
+	if(left){
+	oneX--;
+	}
+	if(right){
+	oneX++;
+	}
+	try
+	{
+	Thread.sleep(5);
+	}
+	catch (Exception exc){}
+	frame.repaint();
+	}
+ }
+}

@@ -1,0 +1,30 @@
+/*
+
+  TableDemo.java
+  
+  Silver-J demo java project
+
+*/
+
+import java.awt.*;
+import javax.swing.*;
+
+public class TableDemo extends JFrame
+{
+ private JTable jt;
+ final String[] heads={"Item Name","Rate"};
+ final Object[][] datas={
+   {"Memory Card 8 GB","Rs. 2000"},
+   {"16 GB Pen Drive","Rs.500"},
+   {"CD ROM","Rs.50"},
+   {"Web Camera","Rs.1000"}
+  };
+
+ TableDemo()
+  {
+   setTitle("Table Demo");
+   Container cp=getContentPane();
+   JTable table=new JTable(datas,heads);
+   cp.add(table,BorderLayout.CENTER);
+  }
+}

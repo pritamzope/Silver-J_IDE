@@ -1,0 +1,156 @@
+/*
+ 
+   FontsTest.java
+   
+   Silver-J demo java project
+
+*/
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class FontsTest extends JFrame
+{
+	public List fontlist,fontlistsize,pbilist;
+	JPanel jp;
+	JLabel label;
+
+	String[] fonts={"Agency FB                                                  ",
+			"Alaska",
+			"Algerian",
+			"Almonte",
+			"Arial",
+			"Arial Black",
+			"Arial Narrow",
+			"Baskerville Old Face",
+			"Biting My Nails",
+			"Book Antique",
+			"Calibri",
+			"Castellar",
+			"Century",
+			"Constantia",
+			"Goudy Old Style",
+			"Javanese Text",
+			"Kruti Dev 040 Wide",
+			"Lucida",
+			"Lucida Bright",
+			"Lucida Handwriting",
+			"Lucida Console",
+			"Lucida Fax",
+			"Magneto",
+			"Microsoft Sans Serif",
+			"Microsoft YaHei UI",
+			"Modern No. 20",
+			"Modern",
+			"Monospaced",
+			"MS Outlook",
+			"MT Extra",
+			"Segoe UI",
+			"SansSerif",
+			"Serif",
+			"Stencil",
+			"Wide Latin" };
+
+	String[] plainbolditalic={"Plain",
+                "Bold",
+                "Italic",
+                "Plain+Bold",
+                "Plain+Italic",
+                "Bold+Italic",
+                "Plain+Bold+Italic"};
+
+	public FontsTest()
+	{
+		//add label to center of frame to view changed font
+		label=new JLabel("Java Fonts Test",JLabel.CENTER);
+		add(label,BorderLayout.CENTER);
+
+		//create a panel
+		jp=new JPanel();
+		SetFontAction sfa=new SetFontAction();
+
+		//create font list and add it to container
+	 fontlist=new List(10,false);
+	 fontlist.addActionListener(sfa);
+     fontlist.setSize(600,300);
+	 fontlist.setFont(new Font("Constantia",Font.PLAIN,16));
+	 fontlist.select(2);
+	 for(int i=0;i<fonts.length;i++)
+	 {
+		 fontlist.add(fonts[i]);
+	 }
+     jp.add(fontlist);
+
+     //create plain bold italic(pbi) list
+    pbilist=new List(10,false);
+    pbilist.setFont(new Font("Constantia",Font.PLAIN,16));
+	 pbilist.addActionListener(sfa);
+      for(int i=0;i<plainbolditalic.length;i++)
+      {
+    	  pbilist.add(plainbolditalic[i]);
+      }
+     pbilist.select(0);
+     jp.add(pbilist);
+
+     //create font list size list
+    fontlistsize=new List(10,false);
+    fontlistsize.setFont(new Font("Constantia",Font.PLAIN,16));
+	fontlistsize.addActionListener(sfa);
+    fontlistsize.select(15);
+     for(int i=1;i<=200;i++)
+     {
+    	 Integer f=new Integer(i);
+    	 fontlistsize.add(f.toString());
+     }
+     jp.add(fontlistsize);
+     add(jp,BorderLayout.NORTH);
+	}
+
+	//class SetFontAction
+	class SetFontAction implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			String font=fontlist.getSelectedItem().toString();
+			font=font.trim();
+			String fntsize=fontlistsize.getSelectedItem().toString();
+			int fontsize=Integer.parseInt(fntsize);
+			String pbi=pbilist.getSelectedItem().toString();
+
+			switch(pbi)
+			{
+			case "Plain" :  label.setFont(new Font(font,Font.PLAIN,fontsize));
+			                   break;
+
+			case "Bold" :  label.setFont(new Font(font,Font.BOLD,fontsize));
+			                   break;
+
+			case "Italic" :  label.setFont(new Font(font,Font.ITALIC,fontsize));
+			                    break;
+
+			case "Plain+Bold"  : label.setFont(new Font(font,Font.PLAIN+Font.BOLD,fontsize));
+			                    break;
+
+			case "Plain+Italic"  :  label.setFont(new Font(font,Font.PLAIN+Font.ITALIC,fontsize));
+			                     break;
+
+			case "Bold+Italic"  :    label.setFont(new Font(font,Font.BOLD+Font.ITALIC,fontsize));
+			                      break;
+
+			case "Plain+Bold+Italic"  : label.setFont(new Font(font,Font.PLAIN+Font.BOLD+Font.ITALIC,fontsize));
+			                     break;
+			}
+		}
+	}
+
+	public static void main(String[] args)
+	{
+		JFrame jf=new FontsTest();
+		jf.setTitle("Fonts Test");
+		jf.setSize(800,500);
+		jf.setVisible(true);
+	}
+}
+
+

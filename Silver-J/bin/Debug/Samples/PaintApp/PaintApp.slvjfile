@@ -1,0 +1,220 @@
+/*
+  
+   PaintApp.java
+   
+   Silver-J demo java project
+  
+*/
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class PaintApp extends JFrame implements ActionListener,MouseListener,WindowListener
+{
+  String selected_shape=new String("Square");
+  String selected_color=new String("Blue");
+  boolean Eraser=false;
+  int up_L_X,up_L_Y,W,H,sel_x1,sel_y1,sel_x2,sel_y2;
+  String[] extras_list={"Clear Canvas","Eraser"};
+  String[] color_list={"Black","Cyan","Green","Yellow","Magenta","Red","Blue"};
+  String[] shape_list={"Line","Rectangle","Square","Circle"};
+
+  //window closing events
+  public void windowClosing(WindowEvent e){
+	  System.exit(0);
+  }
+  public void windowClosed(WindowEvent e){}
+  public void windowIconified(WindowEvent e){}
+  public void windowOpened(WindowEvent e){}
+  public void windowDeiconified(WindowEvent e){}
+  public void windowActivated(WindowEvent e){}
+  public void windowDeactivated(WindowEvent e){}
+
+  //mouse events
+  public void mouseMoved(MouseEvent e){}
+  public void mouseClicked(MouseEvent e){}
+  public void mouseExited(MouseEvent e){}
+  public void mouseEntered(MouseEvent e){}
+
+  //PaintApp Constructor
+  public PaintApp()
+  {
+	  addMouseListener(this);
+	  setLayout(null);
+	  Set_Menu_Items();
+	  setBackground(Color.WHITE);
+  }
+
+  //action performed event
+  public void actionPerformed(ActionEvent acte)
+  {
+	  Graphics ga=getGraphics();
+	  Object s=acte.getActionCommand();
+	  for(int i=0;i!=color_list.length;i++)
+		  if(s.equals(color_list[i]))
+		  {
+			  selected_color=color_list[i];
+			  return;
+		  }
+	  for(int i=0;i!=shape_list.length;i++)
+		  if(s.equals(shape_list[i]))
+		  {
+			  selected_shape=shape_list[i];
+			  return;
+		  }
+	  if(s.equals("Eraser"))
+	  {
+		  Eraser=true;
+		  return;
+	  }
+	  else if(s.equals("Clear Canvas"))
+	  {
+		  ga.clearRect(0,0,getWidth(),getHeight());
+	  }
+  }
+
+  //Choose_Color function
+  void Choose_Color(Graphics ga)
+  {
+	  for(int i=0;i!=color_list.length;i++)
+	  {
+		  if(selected_color.equals(color_list[i]))
+		  {
+			  switch(i)
+			  {
+			  case 0 : ga.setColor(Color.black);break;
+			  case 1 : ga.setColor(Color.cyan);break;
+			  case 2 : ga.setColor(Color.green);break;
+			  case 3 : ga.setColor(Color.yellow);break;
+			  case 4 : ga.setColor(Color.magenta);break;
+			  case 5 : ga.setColor(Color.red);break;
+			  case 6 : ga.setColor(Color.blue);break;
+			  }
+		  }
+	  }
+  }
+
+  //mouse released event
+  public void mouseReleased(MouseEvent me)
+  {
+	  Graphics ga=getGraphics();
+	  if(Eraser)
+	  {
+		  Eraser=false;
+		  return;
+	  }
+	  Choose_Color(ga);
+	  sel_x2=me.getX();
+	  sel_y2=me.getY();
+
+	  if(selected_shape.equals("Line"))
+	  {
+		  ga.drawLine(sel_x1,sel_y1,sel_x2,sel_y2);
+	  }
+	  else if(selected_shape.equals("Circle"))
+	  {
+		  Draw_Selected_Shape(ga,"Circle");
+	  }
+	  else if(selected_shape.equals("Square"))
+	  {
+		  Draw_Selected_Shape(ga,"Square");
+	  }
+	  else if(selected_shape.equals("Rectangle"))
+	  {
+		  Draw_Selected_Shape(ga,"Rectangle");
+	  }
+	  ga.setColor(Color.yellow);
+	  ga.drawString(".",sel_x1,sel_y1);
+	  ga.setColor(Color.black);
+  }
+
+  //Draw_Selected_Shape function
+  void Draw_Selected_Shape(Graphics ga,String shape)
+  {
+	  up_L_X=Math.min(sel_x1,sel_x2);
+	  up_L_Y=Math.min(sel_y1,sel_y2);
+	  W=Math.abs(sel_x1-sel_x2);
+	  H=Math.abs(sel_y1-sel_y2);
+	  if(shape.equals("Square"))
+	  {
+		  ga.fillRect(up_L_X,up_L_Y,W,W);
+	  }
+	  else if(shape.equals("Rectangle"))
+	  {
+		  ga.fillRect(up_L_X,up_L_Y,W,H);
+	  }
+	  else if(shape.equals("Circle"))
+	  {
+		  ga.fillOval(up_L_X,up_L_Y,W,W);
+	  }
+  }
+
+  //mouse dragged event
+  public void mouseDragged(MouseEvent me)
+  {
+	  Graphics ga=getGraphics();
+	  sel_x2=me.getX();
+	  sel_y2=me.getY();
+	  if(Eraser)
+	  {
+		  ga.setColor(Color.white);
+		  ga.fillRect(sel_x2,sel_y2,10,10);
+	  }
+  }
+
+  //mouse pressed event
+  public void mousePressed(MouseEvent me)
+  {
+	  if(Eraser) return;
+	  up_L_X=0;
+	  up_L_Y=0;
+	  W=0;
+	  H=0;
+	  sel_x1=me.getX();
+	  sel_y1=me.getY();
+	  Graphics ga=getGraphics();
+	  ga.drawString(".",sel_x1,sel_y1);
+  }
+
+  //Set_Menu_Items function
+  void Set_Menu_Items()
+  {
+	  MenuBar mb=new MenuBar();
+
+	  Menu menu_sh=new Menu("Shapes");
+	  for(int i=0;i!=shape_list.length;i++)
+	  {
+		  menu_sh.add(shape_list[i]);
+		  mb.add(menu_sh);
+		  menu_sh.addActionListener(this);
+	  }
+
+	  Menu menu_col=new Menu("Colors");
+	  for(int i=0;i!=color_list.length;i++)
+	  {
+		  menu_col.add(color_list[i]);
+		  mb.add(menu_col);
+		  menu_col.addActionListener(this);
+	  }
+
+	  Menu menu_Ex=new Menu("Extras");
+	  for(int i=0;i!=extras_list.length;i++)
+	  {
+		  menu_Ex.add(extras_list[i]);
+		  mb.add(menu_Ex);
+		  menu_Ex.addActionListener(this);
+	  }
+
+	  setMenuBar(mb);
+  }
+
+  //main method
+  public static void main(String[] args)
+	{
+		JFrame mpa=new PaintApp();
+		mpa.setTitle("Paint App in Java");
+		mpa.setSize(800,600);
+		mpa.setVisible(true);
+	}
+}

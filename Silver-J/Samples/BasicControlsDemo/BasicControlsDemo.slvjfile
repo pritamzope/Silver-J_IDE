@@ -1,0 +1,199 @@
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+public class BasicControlsDemo extends JFrame
+{
+	JButton buttonDemo,textfieldDemo,textareaDemo,checkboxDemo,comboboxDemo,filedialogDemo,tabbedpaneDemo,treeDemo,tableDemo;
+	JPanel jp;
+
+  public BasicControlsDemo()
+  {
+	  jp=new JPanel();
+
+	  //create button of Button Demo
+	  buttonDemo=new JButton("                   Button Demo                   ");
+	  buttonDemo.setFont(new Font("Sanes Serif",Font.PLAIN,16));
+	  buttonDemo.addActionListener(new ButtonsDemoAction());
+	  jp.add(buttonDemo);
+
+	//create button of Text Field Demo
+	  textfieldDemo=new JButton("                Text Field Demo                ");
+	  textfieldDemo.setFont(new Font("Sanes Serif",Font.PLAIN,16));
+	  textfieldDemo.addActionListener(new TextFieldDemoAction());
+	  jp.add(textfieldDemo);
+
+	//create button of Text Area Demo
+	  textareaDemo=new JButton("                Text Area Demo                ");
+	  textareaDemo.setFont(new Font("Sanes Serif",Font.PLAIN,16));
+	  textareaDemo.addActionListener(new TextAreaDemoAction());
+	  jp.add(textareaDemo);
+
+	//create button of Check Box Demo
+	  checkboxDemo=new JButton("               Check Box Demo               ");
+	  checkboxDemo.setFont(new Font("Sanes Serif",Font.PLAIN,16));
+	  checkboxDemo.addActionListener(new CheckBoxDemoAction());
+	  jp.add(checkboxDemo);
+
+	//create button of Combo Box Demo
+	  comboboxDemo=new JButton("              Combo Box Demo              ");
+	  comboboxDemo.setFont(new Font("Sanes Serif",Font.PLAIN,16));
+	  comboboxDemo.addActionListener(new ComboBoxDemoAction());
+	  jp.add(comboboxDemo);
+
+	//create button of File Dialog Demo
+	  filedialogDemo=new JButton("               File Dialog Demo               ");
+	  filedialogDemo.setFont(new Font("Sanes Serif",Font.PLAIN,16));
+	  filedialogDemo.addActionListener(new FileDialogDemoAction());
+	  jp.add(filedialogDemo);
+
+	//create button of Tabbed Pane Demo
+	  tabbedpaneDemo=new JButton("            Tabbed PaneDemo              ");
+	  tabbedpaneDemo.setFont(new Font("Sanes Serif",Font.PLAIN,16));
+	  tabbedpaneDemo.addActionListener(new TabbedPaneDemoAction());
+	  jp.add(tabbedpaneDemo);
+
+	//create button of Tree Demo
+	  treeDemo=new JButton("                     Tree Demo                     ");
+	  treeDemo.setFont(new Font("Sanes Serif",Font.PLAIN,16));
+	  treeDemo.addActionListener(new TreeDemoAction());
+	  jp.add(treeDemo);
+
+	//create button of Table Demo
+	  tableDemo=new JButton("                   Table Demo                     ");
+	  tableDemo.setFont(new Font("Sanes Serif",Font.PLAIN,16));
+	  tableDemo.addActionListener(new TableDemoAction());
+	  jp.add(tableDemo);
+
+	  Container cp=getContentPane();
+	  cp.add(jp,BorderLayout.CENTER);
+  }
+
+  //class ButtonsDemoAction
+  class ButtonsDemoAction implements ActionListener
+  {
+	  public void actionPerformed(ActionEvent e)
+	  {
+		  JFrame bjf=new ButtonsDemo();
+		  bjf.setSize(300,200);
+		  bjf.setLocation(200,110);
+		  bjf.setTitle("Buttons Demo");
+		  bjf.setVisible(true);
+	  }
+  }
+
+  //class TextFieldDemoAction
+  class TextFieldDemoAction implements ActionListener
+  {
+	  public void actionPerformed(ActionEvent e)
+	  {
+		  JFrame tfjf=new TextFieldDemo();
+		  tfjf.setSize(300,200);
+		  tfjf.setLocation(200,110);
+		  tfjf.setVisible(true);
+	  }
+  }
+
+  //class TextAreaDemoAction
+  class TextAreaDemoAction implements ActionListener
+  {
+	  public void actionPerformed(ActionEvent e)
+	  {
+		  JFrame tfjf=new TextAreaDemo();
+		  tfjf.setSize(400,200);
+		  tfjf.setLocation(200,110);
+		  tfjf.setVisible(true);
+	  }
+  }
+
+  //class CheckBoxDemoAction
+  class CheckBoxDemoAction implements ActionListener
+  {
+	  public void actionPerformed(ActionEvent e)
+	  {
+		  JFrame tfjf=new CheckBoxDemo();
+		  tfjf.setSize(400,200);
+		  tfjf.setLocation(200,110);
+		  tfjf.setVisible(true);
+	  }
+  }
+
+  //class ComboBoxDemoAction
+  class ComboBoxDemoAction implements ActionListener
+  {
+	  public void actionPerformed(ActionEvent e)
+	  {
+		  JFrame tfjf=new ComboBoxDemo();
+		  tfjf.setSize(400,200);
+		  tfjf.setLocation(200,110);
+		  tfjf.setVisible(true);
+	  }
+  }
+
+  //class FileDialogDemoAction
+  class FileDialogDemoAction implements ActionListener
+  {
+	  public void actionPerformed(ActionEvent e)
+	  {
+		  JFrame f=new JFrame();
+		  FileDialog fd=new FileDialog(f,"Open File");
+		  fd.setSize(140,140);
+		  fd.setVisible(true);
+	  }
+  }
+
+  //class TabbedPaneDemoAction
+  class TabbedPaneDemoAction implements ActionListener
+  {
+	  public void actionPerformed(ActionEvent e)
+	  {
+		  JFrame tfjf=new TabbedPaneDemo();
+		  tfjf.setSize(400,200);
+		  tfjf.setLocation(200,110);
+		  tfjf.setVisible(true);
+	  }
+  }
+
+  //class TreeDemoAction
+  class TreeDemoAction implements ActionListener
+  {
+	  public void actionPerformed(ActionEvent e)
+	  {
+		  JFrame tfjf=new TreeDemo();
+		  tfjf.setSize(400,200);
+		  tfjf.setLocation(200,110);
+		  tfjf.setVisible(true);
+	  }
+  }
+
+  //class TableDemoAction
+  class TableDemoAction implements ActionListener
+  {
+	  public void actionPerformed(ActionEvent e)
+	  {
+		  JFrame tfjf=new TableDemo();
+		  tfjf.setSize(400,200);
+		  tfjf.setLocation(200,110);
+		  tfjf.setVisible(true);
+	  }
+  }
+
+  //main method
+  public static void main(String[] args)
+  {
+	  try
+	    {
+	     UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+	    }
+	    catch (Exception e)
+	    {
+	      e.printStackTrace();
+	    }
+
+	  JFrame jf=new BasicControlsDemo();
+	  jf.setTitle("Java Basic Controls Demo");
+	  jf.setResizable(false);
+	  jf.setLocation(250,100);
+	  jf.setSize(400,340);
+	  jf.setVisible(true);
+  }
+}

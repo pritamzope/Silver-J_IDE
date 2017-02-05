@@ -1,0 +1,136 @@
+import java.awt.*;
+
+import javax.swing.*;
+
+import java.awt.event.*;
+import java.awt.datatransfer.*;
+import java.io.*;
+public class TestFrame extends JFrame
+{
+	private JButton textBlack,textBlue,textCyan,textDarkGray,textGray,textGreen,textLightGray,textMagenta,textOrange,textPink,textRed,textYellow,textWhite;
+	private JPanel textColor;
+	public TestFrame()
+	{
+		 //Create JMenuBar
+        JMenuBar mb = new JMenuBar();
+        //Create File menu
+        JMenu F = new JMenu(" File ");
+        F.setFont(new Font("Segoe UI",Font.PLAIN,12));
+        //File->New
+        JMenuItem n = new JMenuItem("New                             ");
+        n.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,ActionEvent.CTRL_MASK));
+        //File->Open
+        JMenuItem o = new JMenuItem("Open");
+        o.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O,ActionEvent.CTRL_MASK));
+        //File->Save
+        JMenuItem s = new JMenuItem("Save");
+        s.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,ActionEvent.CTRL_MASK));
+        //File->Exit
+        JMenuItem e = new JMenuItem("Exit");
+        //add action listener to menu items and add those to F
+        F.add(n);
+        F.addSeparator();
+        F.add(o);
+        F.addSeparator();
+        F.add(s);
+        F.addSeparator();
+        F.add(e);
+        mb.add(F);
+        //Create Edit menu
+        JMenu E = new JMenu(" Edit ");
+        E.setFont(new Font("Segoe UI",Font.PLAIN,12));
+        //Edit->Cut
+        JMenuItem cut = new JMenuItem("Cut                         ");
+        cut.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X,ActionEvent.CTRL_MASK));
+        //Edit->Copy
+        JMenuItem copy = new JMenuItem("Copy");
+        copy.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C,ActionEvent.CTRL_MASK));
+        //Edit->Paste
+        JMenuItem paste = new JMenuItem("Paste");
+        paste.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V,ActionEvent.CTRL_MASK));
+        //Edit->Undo
+        JMenuItem undo = new JMenuItem("Undo");
+        undo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z,ActionEvent.CTRL_MASK));
+        //Edit->Redo
+        JMenuItem redo = new JMenuItem("Redo");
+        redo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Y,ActionEvent.CTRL_MASK));
+        //Edit->Find
+        JMenuItem find=new JMenuItem("Find");
+        //Edit->Text Color
+        JMenuItem textcolor=new JMenuItem("Text Color");
+        //Edit->Back Color
+        JMenuItem backcolor=new JMenuItem("Back Color");
+
+        E.add(cut);
+        E.add(copy);
+        E.add(paste);
+        E.addSeparator();
+        E.add(undo);
+        E.add(redo);
+        E.addSeparator();
+        E.add(find);
+        E.addSeparator();
+        E.add(textcolor);
+        E.add(backcolor);
+        mb.add(E);
+        //Create Font menu
+        JMenu font=new JMenu(" Font ");
+        font.setFont(new Font("Segoe UI",Font.PLAIN,12));
+        JMenuItem plain=new JMenuItem("Plain                               ");
+        JMenuItem bold=new JMenuItem("Bold");
+        JMenuItem italic=new JMenuItem("Italic");
+        JMenuItem plainbold=new JMenuItem("Plain+Bold");
+        JMenuItem plainitalic=new JMenuItem("Plain+Italic");
+        JMenuItem bolditalic=new JMenuItem("Bold+Italic");
+        JMenuItem fontsize=new JMenuItem("Font Size");
+        font.add(plain);
+        font.add(bold);
+        font.add(italic);
+        font.add(plainbold);
+        font.add(plainitalic);
+        font.add(bolditalic);
+        font.add(fontsize);
+        mb.add(font);
+        //Create Help Menu
+        JMenu help=new JMenu(" Help ");
+        help.setFont(new Font("Segoe UI",Font.PLAIN,12));
+        JMenuItem about=new JMenuItem("About              ");
+        help.add(about);
+        mb.add(help);
+        setJMenuBar(mb);
+
+
+        textColor=new JPanel();
+    	textColor.setLayout(new GridLayout(13,1));
+    	textColor.setBackground(Color.white);
+    	textBlack=new JButton("Black");
+    	textColor.add(textBlack,BorderLayout.WEST);
+    	textBlue=new JButton("Blue");
+    	textColor.add(textBlue,BorderLayout.WEST);
+    	textCyan=new JButton("Cyan");
+    	textColor.add(textCyan,BorderLayout.WEST);
+    	textDarkGray=new JButton("DarkGray");
+    	textColor.add(textDarkGray,BorderLayout.WEST);
+    	textGray=new JButton("Gray");
+    	textColor.add(textGray,BorderLayout.WEST);
+    	textGreen=new JButton("Green");
+    	textColor.add(textGreen,BorderLayout.WEST);
+    	textLightGray=new JButton("LightGray");
+    	textColor.add(textLightGray,BorderLayout.WEST);
+    	textMagenta=new JButton("Magenta");
+    	textColor.add(textMagenta,BorderLayout.WEST);
+    	textOrange=new JButton("Orange");
+    	textColor.add(textOrange,BorderLayout.WEST);
+    	textPink=new JButton("Pink");
+    	textColor.add(textPink,BorderLayout.WEST);
+    	textRed=new JButton("Red");
+    	textColor.add(textRed,BorderLayout.WEST);
+    	textYellow=new JButton("Yellow");
+    	textColor.add(textYellow,BorderLayout.WEST);
+    	textWhite=new JButton("White");
+    	textColor.add(textWhite,BorderLayout.WEST);
+    	add(textColor,BorderLayout.WEST);
+
+	}
+
+}
