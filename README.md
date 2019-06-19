@@ -1,4 +1,4 @@
-# Java_IDE_CSharp
+# Integrated Development Environment
 A small Java Integrated Development Environment(IDE) written in C#.<br/>
 Create Java Application & Java Applet Projects, Compile & Run Projects, Build Executable Jar Applications, Different Appearances etc.
 
