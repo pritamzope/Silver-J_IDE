@@ -19,7 +19,7 @@ namespace Silver_J.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -216,6 +216,16 @@ namespace Silver_J.Properties {
         internal static System.Drawing.Bitmap htmlfile {
             get {
                 object obj = ResourceManager.GetObject("htmlfile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_black_white {
+            get {
+                object obj = ResourceManager.GetObject("icon-black_white", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -476,6 +486,16 @@ namespace Silver_J.Properties {
         internal static System.Drawing.Bitmap silver_j12_png {
             get {
                 object obj = ResourceManager.GetObject("silver_j12_png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap silver_j12_png1 {
+            get {
+                object obj = ResourceManager.GetObject("silver_j12_png1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

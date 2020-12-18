@@ -585,6 +585,7 @@
     <None Include="Resources\rocks.bmp" />
     <None Include="Resources\rocks2.bmp" />
     <None Include="Resources\roughwood.bmp" />
+    <None Include="Resources\icon-black_white.png" />
     <Content Include="silver_j12_ico.ico" />
     <None Include="Resources\silver_j12_png.png" />
     <Content Include="silver_j12.ico" />

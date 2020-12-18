@@ -58,37 +58,89 @@ namespace Silver_J
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(About_Form));
             this.panelZ1 = new Silver_J.PanelZ();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.labelZ1 = new Silver_J.LabelZ();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panelZ1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelZ1
             // 
+            this.panelZ1.Controls.Add(this.label7);
+            this.panelZ1.Controls.Add(this.label8);
+            this.panelZ1.Controls.Add(this.label6);
+            this.panelZ1.Controls.Add(this.pictureBox1);
             this.panelZ1.Controls.Add(this.label5);
             this.panelZ1.Controls.Add(this.button1);
             this.panelZ1.Controls.Add(this.label4);
             this.panelZ1.Controls.Add(this.label3);
             this.panelZ1.Controls.Add(this.label1);
-            this.panelZ1.Controls.Add(this.labelZ1);
             this.panelZ1.Controls.Add(this.label2);
-            this.panelZ1.Controls.Add(this.panel1);
             this.panelZ1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelZ1.EndColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.panelZ1.GradientAngle = 90;
             this.panelZ1.Location = new System.Drawing.Point(0, 0);
             this.panelZ1.Name = "panelZ1";
-            this.panelZ1.Size = new System.Drawing.Size(387, 210);
+            this.panelZ1.Size = new System.Drawing.Size(428, 241);
             this.panelZ1.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.panelZ1.TabIndex = 0;
             this.panelZ1.Transparent1 = 255;
             this.panelZ1.Transparent2 = 255;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(171, 172);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(80, 28);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Soubik";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(67, 177);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(98, 19);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "Redesigned By";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(84, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(81, 28);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Silver J";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::Silver_J.Properties.Resources.silver_j12_png;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(66, 60);
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
             // 
             // label5
             // 
@@ -105,11 +157,13 @@ namespace Silver_J
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(300, 175);
+            this.button1.Location = new System.Drawing.Point(318, 190);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(84, 32);
             this.button1.TabIndex = 8;
             this.button1.Text = "Close";
             this.button1.UseVisualStyleBackColor = false;
@@ -151,24 +205,6 @@ namespace Silver_J
             this.label1.TabIndex = 4;
             this.label1.Text = "A Free light weight IDE for Java written in C#";
             // 
-            // labelZ1
-            // 
-            this.labelZ1.AutoSize = true;
-            this.labelZ1.BackColor = System.Drawing.Color.Transparent;
-            this.labelZ1.DisplayText = "Silver-J";
-            this.labelZ1.EndColor = System.Drawing.Color.Yellow;
-            this.labelZ1.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelZ1.ForeColor = System.Drawing.Color.Transparent;
-            this.labelZ1.GradientAngle = 90;
-            this.labelZ1.Location = new System.Drawing.Point(141, 9);
-            this.labelZ1.Name = "labelZ1";
-            this.labelZ1.Size = new System.Drawing.Size(107, 35);
-            this.labelZ1.StartColor = System.Drawing.Color.Red;
-            this.labelZ1.TabIndex = 3;
-            this.labelZ1.Text = "Silver-J";
-            this.labelZ1.Transparent1 = 255;
-            this.labelZ1.Transparent2 = 255;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -181,19 +217,11 @@ namespace Silver_J
             this.label2.TabIndex = 2;
             this.label2.Text = "Copyright 2016";
             // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = global::Silver_J.Properties.Resources.silver_j12_png;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(65, 65);
-            this.panel1.TabIndex = 0;
-            // 
             // About_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(387, 210);
+            this.ClientSize = new System.Drawing.Size(428, 241);
             this.Controls.Add(this.panelZ1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -205,6 +233,7 @@ namespace Silver_J
             this.Text = "About Silver-J";
             this.panelZ1.ResumeLayout(false);
             this.panelZ1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -212,13 +241,15 @@ namespace Silver_J
         #endregion
 
         private PanelZ panelZ1;
-        private System.Windows.Forms.Panel panel1;
-        private LabelZ labelZ1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
