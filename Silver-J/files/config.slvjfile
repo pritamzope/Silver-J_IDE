@@ -12,7 +12,7 @@
   <!--JDK Path-->
   <JDKPath>C:\Java\jdk1.8.0_25\bin</JDKPath>
   <!-- web browser -->
-  <WebBrowser>C:\Program Files (x86)\Google\Chrome\Application\chrome.exe</WebBrowser>
+  <WebBrowser>C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe</WebBrowser>
   <!--text editro font & font size-->
   <Font>Monospaced</Font>
   <FontSize>10</FontSize>

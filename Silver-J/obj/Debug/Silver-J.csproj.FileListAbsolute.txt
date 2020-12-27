@@ -121,3 +121,46 @@ C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.SampleProject_Form.resources
 C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.Start_Form.resources
 C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver_J.ToolTipControlPanel.resources
 C:\Silver j\Silver-J\Silver-J\obj\Debug\Silver-J.csproj.GenerateResource.Cache
+D:\Github\Silver-J_IDE\Silver-J\bin\Debug\Silver-J.exe.config
+D:\Github\Silver-J_IDE\Silver-J\bin\Debug\Silver-J.exe
+D:\Github\Silver-J_IDE\Silver-J\bin\Debug\Silver-J.pdb
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver-J.csprojAssemblyReference.cache
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.About_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.Find_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.GoTo_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.InsertClass_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.InsertEvents_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.InsertPackages_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.Loading_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.MainForm.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.MyTabPage.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.New_Class_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.New_CSSFile_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.New_Enums_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.New_HTMLFile_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.New_Interface_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.New_JavaAppletProject_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.New_JavaApplicationProject_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.New_JavaScriptFile_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.New_NewFile_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.New_Package_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.New_SQLFile_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.New_TextFile_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.New_XMLFile_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.OpenProjectDialog.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.Options_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.PanelZ.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.Preview_HTML_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.Properties.Resources.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.RemoveAddedFilesToProject_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.Replace_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.RunwithParameter_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.Run_MainClass_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.SampleProject_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.Start_Form.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver_J.ToolTipControlPanel.resources
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver-J.csproj.GenerateResource.cache
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver-J.csproj.CoreCompileInputs.cache
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver-J.csproj.CopyComplete
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver-J.exe
+D:\Github\Silver-J_IDE\Silver-J\obj\Debug\Silver-J.pdb

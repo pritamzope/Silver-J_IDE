@@ -59,13 +59,16 @@ namespace Silver_J
             this.panelWithBorder1 = new Silver_J.PanelWithBorder();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelWithBorder1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelWithBorder1
             // 
             this.panelWithBorder1.BorderColor = System.Drawing.Color.Navy;
             this.panelWithBorder1.BorderWidth = 0;
+            this.panelWithBorder1.Controls.Add(this.pictureBox1);
             this.panelWithBorder1.Controls.Add(this.label2);
             this.panelWithBorder1.Controls.Add(this.label1);
             this.panelWithBorder1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -88,7 +91,7 @@ namespace Silver_J
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(117, 172);
+            this.label2.Location = new System.Drawing.Point(113, 182);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(241, 21);
             this.label2.TabIndex = 1;
@@ -100,13 +103,24 @@ namespace Silver_J
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(109, 48);
+            this.label1.Location = new System.Drawing.Point(150, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(245, 73);
             this.label1.TabIndex = 0;
             this.label1.Text = "Silver-J";
             // 
-            // Splash
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.pictureBox1.BackgroundImage = global::Silver_J.Properties.Resources.silver_j12_png1;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(19, 31);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(125, 102);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // Start_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -116,7 +130,7 @@ namespace Silver_J
             this.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Splash";
+            this.Name = "Start_Form";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -124,6 +138,7 @@ namespace Silver_J
             this.TopMost = true;
             this.panelWithBorder1.ResumeLayout(false);
             this.panelWithBorder1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -133,5 +148,6 @@ namespace Silver_J
         private PanelWithBorder panelWithBorder1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

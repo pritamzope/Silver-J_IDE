@@ -1895,8 +1895,8 @@ namespace Silver_J
                 startpagepanel.StartColor = Color.FromArgb(250, 250, 250);
                 startpagepanel.EndColor = Color.Gainsboro;
 
-                startpagepanel_silverjlabel.StartColor = Color.Silver;
-                startpagepanel_silverjlabel.EndColor = Color.Black;
+                /*startpagepanel_silverjlabel.StartColor = Color.Silver;
+                startpagepanel_silverjlabel.EndColor = Color.Black;*/
 
                 startpagepanel_newjavaappproject.ForeColor = Color.Gray;
                 startpagepanel_newjavaappproject.HoverColor = Color.Black;
@@ -1924,8 +1924,8 @@ namespace Silver_J
                 startpagepanel.EndColor = Color.FromArgb(240, 240, 240);
 
 
-                startpagepanel_silverjlabel.StartColor = Color.Silver;
-                startpagepanel_silverjlabel.EndColor = Color.Black;
+                /*startpagepanel_silverjlabel.StartColor = Color.Silver;
+                startpagepanel_silverjlabel.EndColor = Color.Black;*/
 
                 startpagepanel_newjavaappproject.ForeColor = Color.Gray;
                 startpagepanel_newjavaappproject.HoverColor = Color.Black;
@@ -1952,8 +1952,8 @@ namespace Silver_J
                 startpagepanel.EndColor = Color.FromArgb(255, 172, 236, 255);
 
 
-                startpagepanel_silverjlabel.StartColor = Color.LightSeaGreen;
-                startpagepanel_silverjlabel.EndColor = Color.MidnightBlue;
+                /*startpagepanel_silverjlabel.StartColor = Color.LightSeaGreen;
+                startpagepanel_silverjlabel.EndColor = Color.MidnightBlue;*/
 
                 startpagepanel_newjavaappproject.ForeColor = Color.MidnightBlue;
                 startpagepanel_newjavaappproject.HoverColor = Color.Black;
@@ -1979,8 +1979,8 @@ namespace Silver_J
                 startpagepanel.StartColor = Color.FromArgb(255, 20, 20, 80);
                 startpagepanel.EndColor = Color.FromArgb(255, 20, 20, 70);
 
-                startpagepanel_silverjlabel.StartColor = Color.Gold;
-                startpagepanel_silverjlabel.EndColor = Color.OrangeRed;
+                /*startpagepanel_silverjlabel.StartColor = Color.Gold;
+                startpagepanel_silverjlabel.EndColor = Color.OrangeRed;*/
 
                 startpagepanel_newjavaappproject.ForeColor = Color.Orange;
                 startpagepanel_newjavaappproject.HoverColor = Color.White;
@@ -2006,8 +2006,8 @@ namespace Silver_J
                 startpagepanel.StartColor = Color.FromArgb(20, 20, 20);
                 startpagepanel.EndColor = Color.FromArgb(20, 20, 20);
 
-                startpagepanel_silverjlabel.StartColor = Color.White;
-                startpagepanel_silverjlabel.EndColor = Color.Silver;
+                /*startpagepanel_silverjlabel.StartColor = Color.White;
+                startpagepanel_silverjlabel.EndColor = Color.Silver;*/
 
                 startpagepanel_newjavaappproject.ForeColor = Color.Silver;
                 startpagepanel_newjavaappproject.HoverColor = Color.White;
@@ -2225,7 +2225,7 @@ namespace Silver_J
             if(showstartpageonstartup=="true")
             {
                 int x = startpagepanel.Size.Width;
-                startpagepanel_silverjlabel.Location = new Point(x / 3, 38);
+          /*      startpagepanel_silverjlabel.Location = new Point(x / 3, 38);*/
             }
             else
             {
@@ -6952,12 +6952,11 @@ namespace Silver_J
         private void View_ViewinWebBrowserMenuItem_Click(object sender, EventArgs e)
         {
             String webbrowser = getWebBrowser();
-
             if (webbrowser == "null" || webbrowser == "")
             {
                 String configfile = Application.StartupPath + "\\files\\config.slvjfile";
                 DialogResult dg = MessageBox.Show("Web Browser is not selected\nClick OK to select web browser...", "Select Web Browser", MessageBoxButtons.OKCancel);
-               
+               // Checks if the browser exists in the default program directory  
                 if (dg == DialogResult.OK)
                 {
                     OpenFileDialog openfd = new OpenFileDialog();

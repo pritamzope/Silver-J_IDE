@@ -10,7 +10,7 @@
 -->
 <SilverJConfiguration>
   <!--JDK Path-->
-  <JDKPath>null</JDKPath>
+  <JDKPath>C:\Program Files\Amazon Corretto\jdk11.0.9_12\bin</JDKPath>
   <!-- web browser -->
   <WebBrowser>
   </WebBrowser>
@@ -19,7 +19,7 @@
   <FontSize>10</FontSize>
   <!--views-->
   <!--Appearance-->
-  <Appearance>Default</Appearance>
+  <Appearance>Night</Appearance>
   <!--text editor views-->
   <ShowLineNumbers>true</ShowLineNumbers>
   <ShowLineHighlighter>false</ShowLineHighlighter>
@@ -29,10 +29,10 @@
   <BracesMatching>true</BracesMatching>
   <AutoCompleteBraces>true</AutoCompleteBraces>
   <!--split containers-->
-  <SplitContainer1>1040</SplitContainer1>
-  <SplitContainer2>519</SplitContainer2>
-  <SplitContainer3>281</SplitContainer3>
-  <SplitContainer4>301</SplitContainer4>
+  <SplitContainer1>1686</SplitContainer1>
+  <SplitContainer2>620</SplitContainer2>
+  <SplitContainer3>373</SplitContainer3>
+  <SplitContainer4>497</SplitContainer4>
   <!--tabs,documents etc views-->
   <TabsAlignment>Top</TabsAlignment>
   <ShowStatusStrip>true</ShowStatusStrip>

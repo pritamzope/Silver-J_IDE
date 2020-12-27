@@ -148,6 +148,9 @@
   <data name="find" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\find.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="silver_j12_png1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silver_j12_png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="htmlfile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\htmlfile.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -165,6 +168,9 @@
   </data>
   <data name="saveall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\saveall.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="textfile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\textfile.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="runapplet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\runapplet.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,14 +190,11 @@
   <data name="print" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\print.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="javaproject" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\javaproject.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="compile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\compile.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="singlelinecomment" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\singlelinecomment.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="silver_j_png" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\silver_j_png.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="paste" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\paste.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,8 +202,8 @@
   <data name="cut" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cut.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="textfile" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\textfile.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="silver_j12_png" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silver_j12_png.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="package" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\package.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -232,6 +235,9 @@
   <data name="multilinecomment" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\multilinecomment.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="openfile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\openfile.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="goto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\goto.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -241,8 +247,8 @@
   <data name="xmlfile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\xmlfile.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="openfile" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\openfile.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="javaproject" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\javaproject.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="openproject" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\openproject.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -259,10 +265,10 @@
   <data name="closefile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\closefile.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="compile" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\compile.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="silver_j_png" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silver_j_png.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="silver_j12_png" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\silver_j12_png.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon-black_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon-black_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
